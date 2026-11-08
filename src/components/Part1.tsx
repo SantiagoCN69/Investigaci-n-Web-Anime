@@ -170,31 +170,24 @@ export function Consumo() {
           </div>
         </div>
 
-        <div className="mt-24 grid gap-12 md:mt-32 md:max-w-6xl md:mx-auto md:grid-cols-12 md:items-center">
-          <Reveal className="md:col-span-5">
-            <h3 className="text-3xl font-semibold md:text-4xl">¿Por qué importa esta evolución?</h3>
-            <p className="mt-6 max-w-[44ch] text-mute">
-              Entender el recorrido histórico del acceso al anime permite identificar qué
-              necesidades del usuario han persistido y cuáles han surgido con cada nuevo formato.
-            </p>
+        <div className="mt-24 text-center md:mt-32">
+          <Reveal>
+            <div className="relative mx-auto max-w-4xl px-8 py-10 md:px-12 md:py-14">
+              <span className="pointer-events-none absolute left-0 top-0 size-6 border-l-2 border-t-2 border-accent/70" />
+              <span className="pointer-events-none absolute right-0 top-0 size-6 border-r-2 border-t-2 border-accent/70" />
+              <span className="pointer-events-none absolute bottom-0 left-0 size-6 border-b-2 border-l-2 border-accent/70" />
+              <span className="pointer-events-none absolute bottom-0 right-0 size-6 border-b-2 border-r-2 border-accent/70" />
+              <h3 className="text-3xl font-semibold md:text-4xl">¿Por qué importa esta evolución?</h3>
+              <p className="mx-auto mt-6 max-w-[70ch] text-mute">
+                Cada formato de acceso ha modificado hábitos y expectativas de quienes
+                consumen anime: amplió el catálogo y la comodidad, aunque también introdujo
+                fragilidades como la inestabilidad, la inseguridad y la dependencia de
+                plataformas ajenas. Entender este recorrido permite distinguir qué necesidades
+                han persistido y cuáles emergieron con cada cambio, y qué aprendizajes pueden
+                orientar decisiones más sólidas para AniZen.
+              </p>
+            </div>
           </Reveal>
-          <ul className="md:col-span-6 md:col-start-7">
-            {[
-              [
-                "Evolución del usuario",
-                "Cada nuevo formato transforma los hábitos y las necesidades de quienes consumen anime",
-              ],
-              [
-                "Legado del diseño",
-                "Las experiencias anteriores dejan aprendizajes que orientan mejores decisiones para el desarrollo de AniZen",
-              ],
-            ].map(([label, text], i) => (
-              <Reveal as="li" key={label} delay={i * 100} className="grid gap-3 py-6">
-                <span className="mono text-accent-hi sm:pt-2">{label}</span>
-                <span className="text-xl text-paper/90">{text}</span>
-              </Reveal>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
