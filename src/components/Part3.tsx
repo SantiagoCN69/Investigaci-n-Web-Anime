@@ -482,7 +482,7 @@ export function Conclusiones() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        title="Investigar antes de diseñar cambia el resultado."
+        title="Conclusiones del estudio."
         lead="Los referentes definieron el estándar, la muestra reveló las necesidades y AniZen convierte ambos aprendizajes en decisiones verificables."
       />
       <div className="border-t border-line">

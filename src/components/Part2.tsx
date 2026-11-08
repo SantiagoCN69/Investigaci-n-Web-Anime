@@ -134,7 +134,7 @@ export function Necesidades() {
   return (
     <section className={`${wrap} section-standard`}>
       <SectionHead
-        title="El anime deja huella en la vida cotidiana."
+        title="Influencia del anime en hábitos y aprendizaje."
         lead="El entretenimiento domina, pero la influencia también alcanza la rutina, la reflexión y el aprendizaje."
       />
       <div className="grid gap-16 md:grid-cols-12 md:gap-10">
@@ -216,7 +216,7 @@ export function Perfiles() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          title="No existe un solo tipo de usuario."
+          title="Cuatro arquetipos de usuario."
           lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema."
         />
         <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">

@@ -134,7 +134,7 @@ export function Consumo() {
   return (
     <section className="section-standard border-y border-line bg-ink-2">
       <div className={wrap}>
-        <SectionHead title={<>Del horario fijo a la elección infinita.</>} />
+        <SectionHead title={<>Evolución de los formatos de acceso.</>} />
         <div>
           <div className="grid gap-10 md:grid-cols-4 md:gap-6">
             {formats.map(([t, d, icon, year], i) => (
@@ -343,7 +343,7 @@ export function EvolucionVisual() {
           <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
               <ScrollTitle className="text-[clamp(2.2rem,4.6vw,4.2rem)] font-semibold">
-                La interfaz siguió al hábito.
+                Evolución de las interfaces web.
               </ScrollTitle>
               <div className="relative mt-10 h-36 md:h-40">
                 {eras.map((e, k) => (
@@ -521,7 +521,7 @@ export function Producto() {
       <div className="grid gap-8 md:grid-cols-12 md:items-end">
         <div className="md:col-span-6">
           <ScrollTitle className="max-w-[12ch] text-[clamp(2.4rem,5.4vw,4.8rem)] font-semibold">
-            La investigación toma forma.
+            Del estudio al producto.
           </ScrollTitle>
         </div>
         <p className="max-w-[48ch] text-lg text-mute md:col-span-5 md:col-start-8">
@@ -661,7 +661,7 @@ export function Referentes() {
       <div className="mt-20 grid gap-10 py-10 md:grid-cols-12 md:items-end md:py-14">
         <Reveal className="md:col-span-4">
           <h3 className="text-3xl font-semibold md:text-4xl">
-            La escala confirma que no es un nicho.
+            Las cifras muestran una audiencia amplia.
           </h3>
           <p className="mt-4 max-w-[38ch] text-mute">
             No son cifras comparables uno a uno: Netflix reporta membresías globales y Crunchyroll
