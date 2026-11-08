@@ -197,14 +197,10 @@ export function Necesidades() {
 }
 
 const perfiles = [
-  ["El", "explorador", "Busca nuevos títulos y necesita recorrer géneros con criterio."],
-  ["El", "seguidor", "Quiere volver al episodio correcto sin reconstruir su recorrido."],
-  [
-    "El",
-    "organizador",
-    "Ordena favoritos, pendientes y series completadas en una biblioteca propia.",
-  ],
-  ["El", "casual", "Quiere decidir rápido y necesita pocas opciones, pero bien elegidas."],
+  "El explorador — Busca nuevos títulos y necesita recorrer géneros con criterio.",
+  "El seguidor — Quiere volver al episodio correcto sin reconstruir su recorrido.",
+  "El organizador — Ordena favoritos, pendientes y series completadas en una biblioteca propia.",
+  "El casual — Quiere decidir rápido y necesita pocas opciones, pero bien elegidas.",
 ];
 const comport = [
   ["Consumo por temporadas", "Seguimiento riguroso de estrenos semanales (simulcasts)."],
@@ -233,21 +229,21 @@ export function Perfiles() {
           </p>
         </Reveal>
         <div className="grid gap-5 md:grid-cols-2 md:gap-6 md:pb-10">
-          {perfiles.map(([article, title, description], i) => (
-            <Reveal
-              key={title}
-              delay={i * 70}
-              className={`profile-card profile-card--${i % 2 === 0 ? "left" : "right"} flex min-h-[15rem] flex-col justify-between bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9 ${i % 2 === 0 ? "" : "md:relative md:top-10"}`}
-            >
-              <div>
-                <span className="mono text-accent-hi">{article}</span>
-                <h3 className="mt-2 text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[0.95]">
+          {perfiles.map((perfil, i) => {
+            const [title, description] = perfil.split(" — ");
+            return (
+              <Reveal
+                key={title}
+                delay={i * 70}
+                className="profile-card flex min-h-[15rem] flex-col justify-between bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9"
+              >
+                <h3 className="text-[clamp(1.6rem,3.2vw,2.6rem)] font-semibold leading-[1.05]">
                   {title}
                 </h3>
-              </div>
-              <p className="mt-12 max-w-[38ch] text-mute">{description}</p>
-            </Reveal>
-          ))}
+                <p className="mt-12 max-w-[38ch] text-mute">{description}</p>
+              </Reveal>
+            );
+          })}
         </div>
 
         <div className="mt-28 grid gap-14 md:grid-cols-12">

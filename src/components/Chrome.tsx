@@ -202,7 +202,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               data-action
-              className="group block border border-line bg-paper/[0.025] p-5 transition-[transform,background-color,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-paper/30 hover:bg-paper/[0.05]"
+              className="group block border border-line bg-paper/[0.025] p-5 transition-[translate,background-color,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-paper/30 hover:bg-paper/[0.05]"
               aria-label="Ver el repositorio completo de AniZen en GitHub, se abre en una pestaña nueva"
             >
               <span className="mono text-dim">Código fuente completo</span>
@@ -212,7 +212,7 @@ export function Footer() {
                 </span>
                 <svg
                   viewBox="0 0 24 24"
-                  className="size-6 shrink-0 text-dim transition-[color,filter,transform] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:translate-x-1.5 group-hover:scale-110 group-hover:text-accent-hi group-hover:drop-shadow-[0_0_8px_rgb(213_169_240_/_0.3)]"
+                  className="size-6 shrink-0 text-dim transition-[color,filter,translate,scale] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:translate-x-1.5 group-hover:scale-110 group-hover:text-accent-hi group-hover:drop-shadow-[0_0_8px_rgb(213_169_240_/_0.3)]"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
