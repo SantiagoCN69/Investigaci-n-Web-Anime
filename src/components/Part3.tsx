@@ -243,7 +243,7 @@ export function UX() {
                 "El historial evita depender de notas, hojas de cálculo o servicios separados.",
               ],
             ].map(([t, d], i) => (
-              <Reveal key={t} delay={i * 100} className="border-t border-line py-6">
+              <Reveal key={t} delay={i * 100} className="py-6">
                 <h3 className="font-sans text-xl font-semibold tracking-normal">{t}</h3>
                 <p className="mt-2 text-sm text-mute">{d}</p>
               </Reveal>
