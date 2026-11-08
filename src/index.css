@@ -593,7 +593,6 @@
   align-items: center;
   justify-content: space-between;
   height: 2rem;
-  border-top: 1px solid rgb(250 252 243 / 0.15);
   color: var(--color-dim);
   font-family: var(--font-mono);
   font-size: 9px;
@@ -608,17 +607,10 @@
 .product-shot__viewport {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgb(250 252 243 / 0.13);
-  background: #09080c;
-  box-shadow: 0 24px 55px -32px rgb(0 0 0 / 0.95);
 }
 
 .product-shot__viewport::after {
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgb(255 255 255 / 0.04);
-  content: "";
-  pointer-events: none;
+  display: none;
 }
 
 .product-shot img {
