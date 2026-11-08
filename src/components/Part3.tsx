@@ -145,7 +145,7 @@ function ProductJourneyVisual() {
         </figcaption>
         <div className="product-shot__viewport">
           <img
-            src="/assets/anizen-series-detail.webp"
+            src="/assets/anizen-series-detail.png"
             alt="Ficha de una serie en AniZen con géneros, estado y progreso de episodios"
             width="1802"
             height="836"
@@ -219,7 +219,7 @@ export function Funcionalidades() {
         lead="Cuatro decisiones convierten los hallazgos de la investigación en comportamiento de producto."
       />
       <div ref={ref} data-func-map={seen} className="func-map">
-        <div className="relative mx-auto hidden h-30 md:block" aria-hidden="true">
+        <div className="relative mx-auto -mt-10 hidden h-30 md:-mt-18 md:block" aria-hidden="true">
           <svg
             viewBox={`0 ${MAP_VIEW_TOP} 1200 ${MAP_END_Y - MAP_VIEW_TOP}`}
             preserveAspectRatio="none"

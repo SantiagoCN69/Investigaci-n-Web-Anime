@@ -102,10 +102,8 @@ export function Demografia() {
           </div>
 
           <div className="md:col-span-6 md:col-start-7">
-            <p className="mb-8 text-sm text-dim">
-              Motivos: respuestas independientes · % de encuestados
-            </p>
-            <div className="border-t border-line">
+            <p className="mb-8 text-lg text-dim">Motivos:</p>
+            <div>
               {motivos.map(([l, v], i) => (
                 <Reveal key={l} delay={i * 70} className="py-6">
                   <div className="mb-4 flex items-start justify-between gap-6">

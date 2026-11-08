@@ -558,7 +558,6 @@
 .product-journey {
   position: relative;
   isolation: isolate;
-  padding: 1.25rem 0 2.5rem 2rem;
 }
 
 .product-journey::before {
@@ -994,10 +993,10 @@
   /* .section-standard {
     padding-block: 9rem;
   } */
-
+/* 
   .section-immersive {
     padding-block: 11rem;
-  }
+  } */
 
   .section-standard-top {
     padding-top: 9rem;
