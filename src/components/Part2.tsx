@@ -279,29 +279,56 @@ export function Perfiles() {
 }
 
 const cols = ["Catálogo", "Búsqueda / organización", "Experiencia de uso"];
-const opp: [string, string[]][] = [
+const opp: [string, [string, string][]][] = [
   [
     "Crunchyroll",
     [
-      "Especialización y estrenos simultáneos; la disponibilidad cambia por región.",
-      "Géneros y colecciones conviven con una taxonomía irregular.",
-      "La publicidad y las funciones sociales añaden capas al recorrido.",
+      [
+        "Catálogo",
+        "El referente absoluto del simulcast y la especialización, pero fuertemente condicionado por las restricciones de licenciamiento y el geobloqueo.",
+      ],
+      [
+        "Búsqueda y organización",
+        "El sistema de indexación ha mejorado al consolidar los doblajes, pero comprender el orden cronológico de visualización en franquicias longevas sigue siendo un proceso torpe.",
+      ],
+      [
+        "Experiencia de uso",
+        "Tras la eliminación total de los comentarios y reseñas por parte de la plataforma en 2024, el recorrido perdió su componente comunitario y es ahora de consumo estrictamente aislado.",
+      ],
     ],
   ],
   [
     "Netflix",
     [
-      "Catálogo amplio, pero sin continuidad garantizada entre temporadas.",
-      "La recomendación prima sobre los filtros específicos del anime.",
-      "Retomar es sencillo; comprender una franquicia completa, no siempre.",
+      [
+        "Catálogo",
+        "Oferta masiva y de alta visibilidad, pero sufre de una severa fragmentación de licencias (con frecuencia faltan temporadas intermedias, precuelas o películas canónicas de series largas).",
+      ],
+      [
+        "Búsqueda y organización",
+        "Esclavo del algoritmo. La plataforma prioriza la retención mediante recomendaciones agresivas, lo que entorpece la exploración mediante filtros específicos para el consumidor tradicional de anime.",
+      ],
+      [
+        "Experiencia de uso",
+        "La interfaz es impecable para retomar visualizaciones, pero resulta inconsistente en sus formatos de estreno, mezclando el simulcast semanal con el restrictivo lanzamiento de temporadas completas en bloque.",
+      ],
     ],
   ],
   [
-    "AnimeFLV / webs online",
+    "AnimeFLV / Ecosistema no oficial",
     [
-      "Acceso amplio con enlaces y disponibilidad variables.",
-      "La búsqueda directa funciona mejor que el descubrimiento guiado.",
-      "La publicidad, la seguridad y el reproductor concentran la fricción.",
+      [
+        "Catálogo",
+        "Ofrece completitud histórica sin restricciones geográficas. Centraliza líneas temporales completas (series, OVAs, películas, spin-offs) que el mercado legal mantiene fragmentadas en distintos servicios.",
+      ],
+      [
+        "Búsqueda y organización",
+        "Las búsquedas directas son eficaces al funcionar como un directorio crudo, pero la plataforma carece de un motor de recomendación inteligente guiado por el historial del usuario.",
+      ],
+      [
+        "Experiencia de uso",
+        "El precio del acceso ilimitado. La navegación está constantemente minada por la fricción de la publicidad invasiva, ventanas emergentes, riesgos de seguridad y servidores de reproducción inestables.",
+      ],
     ],
   ],
 ];
@@ -312,8 +339,8 @@ export function Oportunidades() {
       <SectionHead
         n="08"
         kicker="Comparación"
-        title="Tres modelos, tres vacíos."
-        lead="La comparación no busca declarar un ganador, sino identificar qué resuelve cada referente y qué deja pendiente."
+        title="Tres modelos, tres carencias estructurales."
+        lead="La comparación no busca declarar un ganador, sino exponer cómo el modelo de negocio de cada plataforma define sus limitaciones técnicas y de contenido."
       />
       <div className="hidden grid-cols-[1.1fr_1fr_1fr_1fr] gap-6 border-b border-line pb-4 md:grid">
         <span />
@@ -330,16 +357,27 @@ export function Oportunidades() {
           className="grid gap-4 border-b border-line py-8 md:grid-cols-[1.1fr_1fr_1fr_1fr] md:gap-6"
         >
           <h3 className="text-3xl font-semibold">{name}</h3>
-          {cells.map((c, k) => (
-            <div key={k}>
+          {cells.map(([label, c], k) => (
+            <div key={label}>
               <div className="mono mb-2 text-accent-hi md:hidden">{cols[k]}</div>
               <p className="text-sm leading-relaxed text-mute">{c}</p>
             </div>
           ))}
         </Reveal>
       ))}
-      <p className="mt-8 max-w-[80ch] text-xs text-dim">
-        Lectura comparativa centrada en catálogo, organización y experiencia de uso.
+      <p className="mt-8 max-w-[80ch] text-xs leading-relaxed text-dim">
+        <a
+          href="https://www.youtube.com/watch?v=ainqwTW4s_k"
+          target="_blank"
+          rel="noreferrer"
+          data-action
+          className="text-accent-hi underline underline-offset-2 hover:text-paper"
+        >
+          Crunchyroll VS Netflix en animes
+        </a>{" "}
+        — Este análisis en video expone en detalle cómo compiten actualmente las estrategias de
+        catálogo y exclusividad entre Crunchyroll y Netflix, lo que resulta útil para fundamentar
+        las diferencias en sus modelos de distribución.
       </p>
     </section>
   );
