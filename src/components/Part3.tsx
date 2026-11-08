@@ -210,6 +210,7 @@ export function Funcionalidades() {
       <SectionHead
         title="Menos fricción. Más control."
         lead="Cuatro decisiones convierten los hallazgos de la investigación en comportamiento de producto."
+        centered
       />
       <div ref={ref} data-func-map={seen} className="func-map">
         <div className="relative mx-auto -mt-10 hidden h-30 md:-mt-18 md:block" aria-hidden="true">

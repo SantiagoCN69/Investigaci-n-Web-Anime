@@ -114,16 +114,26 @@ export function Nav() {
 export function SectionHead({
   title,
   lead,
+  centered = false,
 }: {
   title: React.ReactNode;
   lead?: string;
+  centered?: boolean;
 }) {
   return (
-    <div className="mb-14 md:mb-20">
-      <ScrollTitle className="text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold">
+    <div className={`mb-14 md:mb-20${centered ? " text-center" : ""}`}>
+      <ScrollTitle
+        className={`text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold${centered ? " mx-auto" : ""}`}
+      >
         {title}
       </ScrollTitle>
-      {lead && <p className="mt-6 max-w-[56ch] text-lg text-mute">{lead}</p>}
+      {lead && (
+        <p
+          className={`mt-6 max-w-[56ch] text-lg text-mute${centered ? " mx-auto" : ""}`}
+        >
+          {lead}
+        </p>
+      )}
     </div>
   );
 }
