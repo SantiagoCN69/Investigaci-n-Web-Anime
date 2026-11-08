@@ -170,7 +170,7 @@ export function Consumo() {
           </div>
         </div>
 
-        <div className="mt-24 grid gap-12 md:mt-32 md:grid-cols-12">
+        <div className="mt-24 grid gap-12 md:mt-32 md:max-w-6xl md:mx-auto md:grid-cols-12 md:items-center">
           <Reveal className="md:col-span-5">
             <h3 className="text-3xl font-semibold md:text-4xl">¿Por qué importa esta evolución?</h3>
             <p className="mt-6 max-w-[44ch] text-mute">
@@ -180,12 +180,14 @@ export function Consumo() {
           </Reveal>
           <ul className="md:col-span-6 md:col-start-7">
             {[
-              ["Cambio de hábito", "Cada formato refleja un cambio en el comportamiento del usuario"],
               [
-                "Herencia digital",
-                "Las plataformas actuales heredan decisiones de diseño de etapas anteriores",
+                "Evolución del usuario",
+                "Cada nuevo formato transforma los hábitos y las necesidades de quienes consumen anime",
               ],
-              ["Criterio de diseño", "Conocer la historia informa mejores decisiones para AniZen"],
+              [
+                "Legado del diseño",
+                "Las experiencias anteriores dejan aprendizajes que orientan mejores decisiones para el desarrollo de AniZen",
+              ],
             ].map(([label, text], i) => (
               <Reveal
                 as="li"
