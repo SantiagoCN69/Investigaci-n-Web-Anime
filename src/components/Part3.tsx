@@ -1,4 +1,5 @@
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { createPortal } from "react-dom";
 import { ScrollTitle, SectionHead, wrap } from "./Chrome";
 import { Reveal, useInView } from "../hooks";
 
@@ -26,8 +27,109 @@ const funcs = [
   ],
 ];
 
+type ShotZoomInfo = {
+  src: string;
+  alt: string;
+  natW: number;
+  natH: number;
+  phase: "in" | "out";
+};
+
+const SHOT_ZOOM_MARGIN = 120;
+
+function ShotZoomOverlay({
+  zoom,
+  onClose,
+}: {
+  zoom: ShotZoomInfo;
+  onClose: () => void;
+}) {
+  const maxW = window.innerWidth - 72;
+  const maxH = window.innerHeight - 170;
+  const scale = Math.min(maxW / zoom.natW, maxH / zoom.natH);
+  const dispW = zoom.natW * scale;
+  const dispH = zoom.natH * scale;
+  const imgLeft = (window.innerWidth - dispW) / 2;
+  const imgTop = (window.innerHeight - dispH) / 2 - 12;
+
+  const handleMove = (e: MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest(".shot-zoom__close")) return;
+    if (
+      e.clientX < imgLeft - SHOT_ZOOM_MARGIN ||
+      e.clientX > imgLeft + dispW + SHOT_ZOOM_MARGIN ||
+      e.clientY < imgTop - SHOT_ZOOM_MARGIN ||
+      e.clientY > imgTop + dispH + SHOT_ZOOM_MARGIN
+    ) {
+      onClose();
+    }
+  };
+
+  return createPortal(
+    <div
+      className={`shot-zoom${zoom.phase === "out" ? " shot-zoom--out" : ""}`}
+      onMouseMove={handleMove}
+    >
+      <div className="shot-zoom__bg" style={{ backgroundImage: `url(${zoom.src})` }} />
+
+      <div
+        className="shot-zoom__frame"
+        style={{ left: imgLeft, top: imgTop, width: dispW, height: dispH }}
+      >
+        <img src={zoom.src} alt={zoom.alt} draggable={false} />
+      </div>
+      <button
+        type="button"
+        className="shot-zoom__close"
+        onClick={onClose}
+        aria-label="Cerrar vista ampliada"
+      >
+        ×
+      </button>
+    </div>,
+    document.body,
+  );
+}
+
 function ProductJourneyVisual() {
   const [ref, seen] = useInView<HTMLDivElement>(0.25);
+  const [zoom, setZoom] = useState<ShotZoomInfo | null>(null);
+  const zoomTimer = useRef<number | null>(null);
+
+  const clearZoomTimer = () => {
+    if (zoomTimer.current != null) {
+      window.clearTimeout(zoomTimer.current);
+      zoomTimer.current = null;
+    }
+  };
+
+  const openZoom = (src: string, alt: string, natW: number, natH: number) => {
+    if (!window.matchMedia("(hover: hover)").matches) return;
+    clearZoomTimer();
+    setZoom({ src, alt, natW, natH, phase: "in" });
+  };
+
+  const closeZoom = () => {
+    clearZoomTimer();
+    setZoom((z) => (z && z.phase === "in" ? { ...z, phase: "out" } : z));
+    zoomTimer.current = window.setTimeout(() => {
+      zoomTimer.current = null;
+      setZoom(null);
+    }, 260);
+  };
+
+  const zoomOpen = zoom !== null;
+  useEffect(() => {
+    if (!zoomOpen) return;
+    const onKey = (e: globalThis.KeyboardEvent) => {
+      if (e.key === "Escape") closeZoom();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [zoomOpen]);
 
   return (
     <div ref={ref} data-product-in={seen} className="product-journey">
@@ -36,7 +138,17 @@ function ProductJourneyVisual() {
         <span />
       </div>
 
-      <figure className="product-shot product-shot--detail">
+      <figure
+        className="product-shot product-shot--detail"
+        onMouseEnter={() =>
+          openZoom(
+            "/assets/anizen-series-detail.webp",
+            "Ficha de una serie en AniZen con géneros, estado y progreso de episodios",
+            1802,
+            836,
+          )
+        }
+      >
         <figcaption>
           <span></span>
           <span>Ficha + estado</span>
@@ -54,7 +166,17 @@ function ProductJourneyVisual() {
         </div>
       </figure>
 
-      <figure className="product-shot product-shot--episodes">
+      <figure
+        className="product-shot product-shot--episodes"
+        onMouseEnter={() =>
+          openZoom(
+            "/assets/anizen-episode-selector.webp",
+            "Selector de episodios de AniZen con capítulos vistos y episodio activo",
+            790,
+            316,
+          )
+        }
+      >
         <figcaption>
           <span>Continuidad por episodio</span>
         </figcaption>
@@ -75,6 +197,8 @@ function ProductJourneyVisual() {
         <span />
         <span />
       </div>
+
+      {zoom && <ShotZoomOverlay key={zoom.src} zoom={zoom} onClose={closeZoom} />}
     </div>
   );
 }
@@ -174,12 +298,6 @@ export function Funcionalidades() {
                 />
               ))}
             </g>
-            {MAP_ENDS.map((x, i) => (
-              <g key={x} className="func-node" style={{ ["--node-delay" as string]: `${620 + i * 140}ms` }}>
-                <circle cx={x} cy={MAP_END_Y} r="9" fill="none" stroke="#d5a9f0" strokeOpacity=".35" />
-                <circle cx={x} cy={MAP_END_Y} r="3.4" fill="#d5a9f0" />
-              </g>
-            ))}
           </svg>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
@@ -247,9 +365,6 @@ export function UX() {
                 <p className="mt-2 text-sm text-mute">{d}</p>
               </Reveal>
             ))}
-            <p className="border-t border-line pt-4 text-xs text-dim">
-              Alcance funcional del proyecto; implementación y validación por confirmar.
-            </p>
           </div>
         </div>
       </div>

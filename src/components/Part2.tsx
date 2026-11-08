@@ -283,7 +283,7 @@ export function Perfiles() {
                   delay={i * 90}
                   className="flex items-baseline gap-5 border-t border-line py-5 text-lg last:border-b"
                 >
-                  <span className="mono text-accent-hi">→</span>
+                  <span className="text-2xl font-bold text-accent-hi">→</span>
                   {t}
                 </Reveal>
               ))}
