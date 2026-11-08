@@ -39,7 +39,7 @@ export function Hero() {
 const specifics = [
   "Comparar cómo Crunchyroll, Netflix y las webs abiertas organizan el acceso al anime.",
   "Reconocer necesidades, hábitos y perfiles dentro de la muestra universitaria.",
-  "Convertir los hallazgos en criterios de producto, experiencia y arquitectura para AniZen.",
+  "Traducir los hallazgos en un producto de streaming competitivo, usable y autosostenible.",
 ];
 
 export function Objetivo() {
@@ -189,12 +189,7 @@ export function Consumo() {
                 "Las experiencias anteriores dejan aprendizajes que orientan mejores decisiones para el desarrollo de AniZen",
               ],
             ].map(([label, text], i) => (
-              <Reveal
-                as="li"
-                key={label}
-                delay={i * 100}
-                className="grid gap-3 py-6"
-              >
+              <Reveal as="li" key={label} delay={i * 100} className="grid gap-3 py-6">
                 <span className="mono text-accent-hi sm:pt-2">{label}</span>
                 <span className="text-xl text-paper/90">{text}</span>
               </Reveal>
@@ -499,10 +494,7 @@ function GlobalReachGraphic() {
           </clipPath>
         </defs>
 
-        <path
-          d="M55 183C102 72 220 25 360 25s258 47 305 158H55Z"
-          fill="url(#reach-surface)"
-        />
+        <path d="M55 183C102 72 220 25 360 25s258 47 305 158H55Z" fill="url(#reach-surface)" />
         <g className="global-reach__grid" clipPath="url(#reach-hemisphere)">
           <ellipse cx="360" cy="183" rx="305" ry="158" />
           <ellipse cx="360" cy="183" rx="164" ry="67" />
@@ -564,22 +556,66 @@ export function Producto() {
         </p>
       </div>
 
-      <div className="mt-10 grid border-y border-line md:grid-cols-3">
+      <div className="mt-14 grid gap-4 md:mt-24 md:grid-cols-3 md:items-end md:gap-6">
         {[
-          [
-            "Descubrimiento",
-            "Episodios, estrenos y recomendaciones visibles desde el inicio.",
-          ],
-          ["Continuidad", "Historial y progreso para volver al punto correcto."],
-          ["Biblioteca personal", "Favoritos, pendientes y completados en un solo lugar."],
-        ].map(([title, description]) => (
-          <div
+          {
+            title: "Descubrimiento",
+            description: "Episodios, estrenos y recomendaciones visibles desde el inicio.",
+            icon: (
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="40" cy="40" r="22" />
+                <path d="M57 57l19 19" />
+                <path d="M33 40l5 5 9-10" />
+              </svg>
+            ),
+            step: "h-1/3",
+            height: "md:min-h-[17rem]",
+          },
+          {
+            title: "Continuidad",
+            description: "Historial y progreso para volver al punto correcto.",
+            icon: (
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M72 44a28 28 0 1 1-8-19" />
+                <path d="M72 18v14H58" />
+                <path d="M48 34v14l10 6" />
+              </svg>
+            ),
+            step: "h-2/3",
+            height: "md:min-h-[21rem]",
+          },
+          {
+            title: "Biblioteca personal",
+            description: "Favoritos, pendientes, viendo y completados en un solo lugar.",
+            icon: (
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M24 20h48v56H24z" />
+                <path d="M32 32h32M32 44h32M32 56h20" />
+                <path d="M68 32v44" />
+              </svg>
+            ),
+            step: "h-full",
+            height: "md:min-h-[25rem]",
+          },
+        ].map(({ title, description, icon, step, height }, i) => (
+          <Reveal
             key={title}
-            className="border-b border-line py-6 last:border-b-0 md:border-b-0 md:border-r md:px-7 md:py-7 md:first:pl-0 md:last:border-r-0"
+            delay={i * 140}
+            className={`group relative flex flex-col overflow-hidden border border-line bg-paper/[0.02] p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-paper/[0.04] md:p-8 ${height}`}
           >
-            <h3 className="font-sans text-lg font-semibold tracking-normal">{title}</h3>
-            <p className="mt-2 max-w-[34ch] text-sm leading-relaxed text-mute">{description}</p>
-          </div>
+            <span
+              className={`absolute inset-y-0 left-0 w-[3px] origin-top bg-gradient-to-b from-accent-hi to-accent ${step}`}
+              aria-hidden="true"
+            />
+            <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{title}</h3>
+            <p className="mt-3 max-w-[34ch] text-sm leading-relaxed text-mute">{description}</p>
+            <div
+              className="pointer-events-none absolute -bottom-14 -right-14 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
+              aria-hidden="true"
+            >
+              {icon}
+            </div>
+          </Reveal>
         ))}
       </div>
 
