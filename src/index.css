@@ -585,7 +585,7 @@
 .product-journey__rail::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(var(--color-accent-hi), var(--color-accent), transparent);
+  background: linear-gradient(var(--color-accent-hi), var(--color-accent));
   content: "";
   transform: scaleY(0);
   transform-origin: top;
@@ -746,12 +746,7 @@
   bottom: 0;
   left: 0;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--color-accent-hi),
-    var(--color-accent) 42%,
-    transparent 78%
-  );
+  background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: left;
 }
