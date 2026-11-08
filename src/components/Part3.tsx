@@ -3,27 +3,22 @@ import { createPortal } from "react-dom";
 import { ScrollTitle, SectionHead, wrap } from "./Chrome";
 import { Reveal, useInView } from "../hooks";
 
-const needs = [
-  ["Centralizar", "Catálogo, reproducción y seguimiento dentro del mismo recorrido."],
-  ["Recordar", "Series, capítulos y favoritos conservan su estado entre sesiones."],
-  ["Encontrar", "Filtros específicos reducen el tiempo entre buscar y reproducir."],
-];
 const funcs = [
   [
-    "Estados de visualización",
-    "Cada título puede marcarse como viendo, completado, pendiente o favorito.",
+    "Centralizar",
+    "Catálogo, reproducción y seguimiento dentro del mismo recorrido. El historial evita depender de notas, hojas de cálculo o servicios separados.",
   ],
   [
-    "Filtros combinados",
-    "Género, año, estudio y estado de ánimo pueden cruzarse en una misma consulta.",
+    "Recordar",
+    "Series, capítulos y favoritos conservan su estado entre sesiones. Cada título puede marcarse como viendo, completado, pendiente o favorito, y la biblioteca conserva la serie, el episodio y el estado de visualización.",
   ],
   [
-    "Personalización",
+    "Encontrar",
+    "Filtros específicos reducen el tiempo entre buscar y reproducir: género, año, estudio y estado de ánimo pueden cruzarse en una misma consulta sobre taxonomías de anime, no categorías genéricas.",
+  ],
+  [
+    "Personalizar",
     "Tema, densidad y navegación se ajustan sin alterar la estructura del catálogo.",
-  ],
-  [
-    "Catálogo especializado",
-    "Taxonomías de anime reemplazan las categorías genéricas de una plataforma generalista.",
   ],
 ];
 
@@ -133,11 +128,6 @@ function ProductJourneyVisual() {
 
   return (
     <div ref={ref} data-product-in={seen} className="product-journey">
-      <div className="product-journey__rail" aria-hidden="true">
-        <span />
-        <span />
-      </div>
-
       <figure
         className="product-shot product-shot--detail cursor-pointer"
         onClick={() =>
@@ -151,7 +141,7 @@ function ProductJourneyVisual() {
       >
         <figcaption>
           <span></span>
-          <span>Ficha + estado</span>
+          <span>Ficha de ejemplo SNK</span>
         </figcaption>
         <div className="product-shot__viewport">
           <img
@@ -165,38 +155,6 @@ function ProductJourneyVisual() {
           <span className="product-shot__scan" aria-hidden="true" />
         </div>
       </figure>
-
-      <figure
-        className="product-shot product-shot--episodes cursor-pointer"
-        onClick={() =>
-          openZoom(
-            "/assets/anizen-episode-selector.webp",
-            "Selector de episodios de AniZen con capítulos vistos y episodio activo",
-            790,
-            316,
-          )
-        }
-      >
-        <figcaption>
-          <span>Continuidad por episodio</span>
-        </figcaption>
-        <div className="product-shot__viewport">
-          <img
-            src="/assets/anizen-episode-selector.webp"
-            alt="Selector de episodios de AniZen con capítulos vistos y episodio activo"
-            width="790"
-            height="316"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </figure>
-
-      <div className="product-journey__signal" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
 
       {zoom && <ShotZoomOverlay key={zoom.src} zoom={zoom} onClose={closeZoom} />}
     </div>
@@ -223,25 +181,12 @@ export function Solucion() {
             </ScrollTitle>
             <p className="mt-8 max-w-[52ch] text-lg text-mute">
               AniZen reúne reproducción, biblioteca, seguimiento de capítulos y filtros
-              especializados. Cada función responde a una fricción observada.
+              especializados.
             </p>
           </div>
           <div className="md:col-span-5">
             <ProductJourneyVisual />
           </div>
-        </div>
-
-        <div className="mt-16 grid border-t border-line md:mt-20 md:grid-cols-3">
-          {needs.map(([t, d], i) => (
-            <Reveal
-              key={t}
-              delay={i * 90}
-              className="border-b border-line py-8 md:border-b-0 md:pr-10"
-            >
-              <h3 className="mt-6 text-2xl font-semibold">{t}</h3>
-              <p className="mt-2 text-mute">{d}</p>
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>
@@ -340,12 +285,30 @@ export function UX() {
             as="figure"
             variant="mask"
             delay={120}
+            className="continuity-shot md:col-span-5 md:self-center"
+          >
+            <div className="continuity-shot__viewport">
+              <img
+                src="/assets/anizen-episode-selector.webp"
+                alt="Selector de episodios de AniZen con capítulos vistos, episodio seleccionado y capítulos pendientes"
+                width="790"
+                height="316"
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="continuity-shot__trace" aria-hidden="true" />
+            </div>
+          </Reveal>
+          <Reveal
+            as="figure"
+            variant="mask"
+            delay={200}
             className="continuity-shot md:col-span-12"
           >
             <div className="continuity-shot__viewport">
               <img
                 src="/assets/anizen-continue-watching.webp"
-                alt="Sección Continuar viendo de AniZen con tres series, episodios activos y barras de progreso"
+                alt="Sección Continuar viendo de AniZen con cuatro series, episodios activos y barras de progreso"
                 width="1004"
                 height="648"
                 loading="lazy"
@@ -354,23 +317,6 @@ export function UX() {
               <span className="continuity-shot__trace" aria-hidden="true" />
             </div>
           </Reveal>
-          <div className="md:col-span-4 md:col-start-9 md:row-start-1">
-            {[
-              [
-                "Control de progreso",
-                "La biblioteca conserva la serie, el episodio y el estado de visualización.",
-              ],
-              [
-                "Seguimiento centralizado",
-                "El historial evita depender de notas, hojas de cálculo o servicios separados.",
-              ],
-            ].map(([t, d], i) => (
-              <Reveal key={t} delay={i * 100} className="py-6">
-                <h3 className="font-sans text-xl font-semibold tracking-normal">{t}</h3>
-                <p className="mt-2 text-sm text-mute">{d}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -134,12 +134,6 @@ const necesidadesClave = [
   ["43,1", "Aprendizaje", "También se consume para acercarse a otras culturas."],
 ];
 
-const efectos = [
-  ["37,1", "creó manga o fanart"],
-  ["32,5", "estudió cultura, idioma o costumbres japonesas"],
-  ["30,2", "asiste a convenciones y eventos temáticos"],
-];
-
 export function Necesidades() {
   return (
     <section className={`${wrap} section-standard`}>
@@ -181,16 +175,6 @@ export function Necesidades() {
         </div>
       </div>
 
-      <Reveal className="mt-20 py-6 px-6 bg-paper/[0.035]">
-        <div className="grid gap-6 md:grid-cols-3">
-          {efectos.map(([n, description]) => (
-            <div key={n} className="flex items-baseline gap-4">
-              <span className="font-display text-3xl font-semibold text-accent-hi">{n}%</span>
-              <p className="max-w-[26ch] text-sm text-mute">{description}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
       <p className="mt-16 max-w-[90ch] text-xs leading-relaxed text-dim">{SOURCE}</p>
     </section>
   );
