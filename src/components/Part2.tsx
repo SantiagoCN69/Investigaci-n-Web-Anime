@@ -223,15 +223,8 @@ export function Perfiles() {
           n="07"
           kicker="Usuarios"
           title="No existe un solo tipo de usuario."
-          lead="Estos arquetipos hipotéticos sintetizan patrones observados y orientan decisiones iniciales; no sustituyen una segmentación validada con usuarios."
+          lead="Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema. No representan grupos estadísticos cerrados: deben contrastarse mediante entrevistas, pruebas de uso y datos de comportamiento."
         />
-        <Reveal className="mb-10">
-          <p className="max-w-[72ch] text-sm leading-relaxed text-dim">
-            Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del
-            análisis del ecosistema. No representan grupos estadísticos cerrados: deben contrastarse
-            mediante entrevistas, pruebas de uso y datos de comportamiento.
-          </p>
-        </Reveal>
         <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">
           {perfiles.map(([title, description, icon], i) => (
             <Reveal
