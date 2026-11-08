@@ -67,6 +67,7 @@ function ShotZoomOverlay({
   return createPortal(
     <div
       className={`shot-zoom${zoom.phase === "out" ? " shot-zoom--out" : ""}`}
+      onClick={onClose}
       onMouseMove={handleMove}
     >
       <div className="shot-zoom__bg" style={{ backgroundImage: `url(${zoom.src})` }} />
@@ -103,7 +104,6 @@ function ProductJourneyVisual() {
   };
 
   const openZoom = (src: string, alt: string, natW: number, natH: number) => {
-    if (!window.matchMedia("(hover: hover)").matches) return;
     clearZoomTimer();
     setZoom({ src, alt, natW, natH, phase: "in" });
   };
@@ -139,8 +139,8 @@ function ProductJourneyVisual() {
       </div>
 
       <figure
-        className="product-shot product-shot--detail"
-        onMouseEnter={() =>
+        className="product-shot product-shot--detail cursor-pointer"
+        onClick={() =>
           openZoom(
             "/assets/anizen-series-detail.webp",
             "Ficha de una serie en AniZen con géneros, estado y progreso de episodios",
@@ -167,8 +167,8 @@ function ProductJourneyVisual() {
       </figure>
 
       <figure
-        className="product-shot product-shot--episodes"
-        onMouseEnter={() =>
+        className="product-shot product-shot--episodes cursor-pointer"
+        onClick={() =>
           openZoom(
             "/assets/anizen-episode-selector.webp",
             "Selector de episodios de AniZen con capítulos vistos y episodio activo",
