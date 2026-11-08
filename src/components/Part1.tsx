@@ -555,7 +555,7 @@ export function Producto() {
             title: "Descubrimiento",
             description: "Episodios, estrenos y recomendaciones visibles desde el inicio.",
             icon: (
-              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="40" cy="40" r="22" />
                 <path d="M57 57l19 19" />
                 <path d="M33 40l5 5 9-10" />
@@ -567,7 +567,7 @@ export function Producto() {
             title: "Continuidad",
             description: "Historial y progreso para volver al punto correcto.",
             icon: (
-              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M72 44a28 28 0 1 1-8-19" />
                 <path d="M72 18v14H58" />
                 <path d="M48 34v14l10 6" />
@@ -579,7 +579,7 @@ export function Producto() {
             title: "Biblioteca personal",
             description: "Favoritos, pendientes, viendo y completados en un solo lugar.",
             icon: (
-              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M24 20h48v56H24z" />
                 <path d="M32 32h32M32 44h32M32 56h20" />
                 <path d="M68 32v44" />
