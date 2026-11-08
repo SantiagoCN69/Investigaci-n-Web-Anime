@@ -578,13 +578,25 @@ export function Producto() {
         ].map(({ title, description, icon, height }, i) => (
           <Reveal
             key={title}
-            delay={i * 140}
+            variant="rise"
+            delay={i === 0 ? 0 : 240 + (i - 1) * 120}
             className={`group relative flex flex-col overflow-hidden border border-line bg-paper/[0.02] p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-paper/[0.04] md:p-8 ${height}`}
           >
-            <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{title}</h3>
-            <p className="mt-3 max-w-[34ch] text-sm leading-relaxed text-mute">{description}</p>
+            <h3
+              className="rise-card-in mt-2 text-2xl font-semibold md:text-3xl"
+              style={{ ["--ci" as string]: "100ms" }}
+            >
+              {title}
+            </h3>
+            <p
+              className="rise-card-in mt-3 max-w-[34ch] text-sm leading-relaxed text-mute"
+              style={{ ["--ci" as string]: "170ms" }}
+            >
+              {description}
+            </p>
             <div
-              className="pointer-events-none absolute -bottom-12 -right-12 -rotate-6 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
+              className="rise-card-in pointer-events-none absolute -bottom-12 -right-12 -rotate-6 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
+              style={{ ["--ci" as string]: "60ms" }}
               aria-hidden="true"
             >
               {icon}

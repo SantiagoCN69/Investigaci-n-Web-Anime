@@ -1091,6 +1091,45 @@
       transform: none;
     }
   }
+  .reveal--rise {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 88px, 0) scale(0.97);
+    transform-origin: 50% 100%;
+    transition:
+      opacity 550ms ease-out var(--d),
+      filter 950ms var(--ease-out-expo) var(--d),
+      transform 1.2s var(--ease-out-expo) var(--d);
+    will-change: opacity, filter, transform;
+  }
+  .reveal--rise.reveal--visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+  .rise-card-in {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translate3d(0, 22px, 0);
+    transition:
+      opacity 200ms ease-out calc(var(--d) + var(--ci, 0ms)),
+      filter 350ms var(--ease-out-expo) calc(var(--d) + var(--ci, 0ms)),
+      transform 400ms var(--ease-out-expo) calc(var(--d) + var(--ci, 0ms));
+    will-change: opacity, filter, transform;
+  }
+  .reveal--rise.reveal--visible .rise-card-in {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+  @media (max-width: 767px) {
+    .reveal--rise {
+      transform: translate3d(0, 56px, 0) scale(0.985);
+    }
+    .rise-card-in {
+      transform: translate3d(0, 16px, 0);
+    }
+  }
   .reveal--mask {
     opacity: 0;
     filter: blur(14px);
@@ -1350,6 +1389,7 @@
   }
   .reveal,
   .reveal .draw-x,
+  .rise-card-in,
   .mobile-index,
   .mobile-index__item,
   .era-window-stage,
