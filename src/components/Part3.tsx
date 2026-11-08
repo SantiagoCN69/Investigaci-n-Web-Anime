@@ -285,6 +285,14 @@ const tech = [
   ],
 ];
 
+const placements = [
+  "md:col-span-6 md:row-start-1 -rotate-2 md:rotate-[-2deg] md:-translate-y-3",
+  "md:col-span-5 md:col-start-8 md:row-start-1 md:translate-y-24 rotate-1 md:rotate-[2deg]",
+  "md:col-span-5 md:col-start-1 md:row-start-2 md:-translate-y-8 -rotate-1 md:rotate-[2deg]",
+  "md:col-span-4 md:col-start-7 md:row-start-2 md:translate-y-12 rotate-2 md:rotate-[-2deg] md:scale-[1.03]",
+  "md:col-span-6 md:col-start-4 md:row-start-3 md:-translate-y-14 -rotate-2 md:rotate-[1.5deg] md:scale-[0.97]",
+];
+
 function TechIcon({ src, index }: { src: string; index: number }) {
   const [ref, seen] = useInView<HTMLDivElement>(0.3);
   return (
@@ -314,24 +322,22 @@ export function Bases() {
           title="Cinco capas, una sola experiencia."
           lead="La interfaz es solo la superficie. AniZen también necesita contratos de datos, lógica de servidor, persistencia y una infraestructura operable."
         />
-        <div className="space-y-12 md:space-y-16">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-12 md:gap-x-6 md:gap-y-28">
           {tech.map(([title, description, icon], i) => (
             <Reveal
               key={title}
               delay={i * 70}
-              className="tech-row group grid grid-cols-[6.5rem_1fr] items-center gap-x-6 gap-y-2 md:grid-cols-12 md:gap-6"
+              className={`tech-row group relative p-6 md:p-7 ${placements[i] ?? ""}`}
             >
-              <div className="row-span-2 md:col-span-2 md:row-span-1">
-                <TechIcon src={icon} index={i} />
-              </div>
+              <TechIcon src={icon} index={i} />
               <h3
-                className="col-start-2 self-end text-2xl font-semibold md:col-span-4 md:col-start-auto md:self-auto md:text-3xl"
+                className="mt-6 text-2xl font-semibold md:text-3xl"
                 style={{ fontFamily: "'Inter:Semi Bold', Inter, sans-serif" }}
               >
                 {title}
               </h3>
               <p
-                className="col-start-2 max-w-[46ch] self-start text-mute md:col-span-5 md:col-start-8 md:self-auto"
+                className="mt-2 max-w-[34ch] text-sm text-mute md:text-base"
                 style={{ fontFamily: "'Inter:Regular', Inter, sans-serif" }}
               >
                 {description}
