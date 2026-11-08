@@ -169,10 +169,6 @@ export function UX() {
               </p>
             </Reveal>
             <Reveal as="figure" variant="mask" delay={120} className="continuity-shot mt-12">
-              <figcaption>
-                <span>Historial activo</span>
-                <span>Retomar sin buscar</span>
-              </figcaption>
               <div className="continuity-shot__viewport">
                 <img
                   src="/assets/anizen-continue-watching.webp"
