@@ -335,21 +335,26 @@ export function UX() {
                 objetivo no es mostrar más contenido, sino hacer visible el siguiente paso.
               </p>
             </Reveal>
-            <Reveal as="figure" variant="mask" delay={120} className="continuity-shot mt-12">
-              <div className="continuity-shot__viewport">
-                <img
-                  src="/assets/anizen-continue-watching.webp"
-                  alt="Sección Continuar viendo de AniZen con tres series, episodios activos y barras de progreso"
-                  width="1004"
-                  height="648"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="continuity-shot__trace" aria-hidden="true" />
-              </div>
-            </Reveal>
           </div>
-          <div className="md:col-span-4 md:col-start-9">
+          <Reveal
+            as="figure"
+            variant="mask"
+            delay={120}
+            className="continuity-shot md:col-span-12"
+          >
+            <div className="continuity-shot__viewport">
+              <img
+                src="/assets/anizen-continue-watching.webp"
+                alt="Sección Continuar viendo de AniZen con tres series, episodios activos y barras de progreso"
+                width="1004"
+                height="648"
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="continuity-shot__trace" aria-hidden="true" />
+            </div>
+          </Reveal>
+          <div className="md:col-span-4 md:col-start-9 md:row-start-1">
             {[
               [
                 "Control de progreso",
@@ -375,20 +380,20 @@ export function UX() {
 const ia = [
   [
     "Búsqueda contextual",
-    "Interpreta una descripción incompleta y la traduce en criterios de catálogo.",
+    "Interpreta descripciones incompletas o ambiguas y las traduce automáticamente en resultados precisos del catálogo, sugiriendo alternativas corregidas."
   ],
   [
     "Historial conectado",
-    "Distingue entre series vistas, abandonadas y guardadas antes de recomendar.",
+    "Analiza tu lista de favoritos y actividad guardada para construir sugerencias altamente personalizadas basadas en tus gustos reales."
   ],
   [
-    "Preferencias en lenguaje natural",
-    "Permite describir tono, ritmo o temática sin conocer la taxonomía del catálogo.",
+    "Lenguaje natural",
+    "Permite explorar el catálogo describiendo el tono, ritmo o concepto de una serie sin depender de etiquetas o taxonomías exactas."
   ],
   [
-    "Rutas relacionadas",
-    "Conecta títulos por afinidad narrativa y explica por qué aparecen juntos.",
-  ],
+    "Afinidad narrativa",
+    "Conecta diferentes animes evaluando similitudes en su estructura argumental, géneros y desarrollo de personajes para descubrir nuevas opciones."
+  ]
 ];
 
 export function IA() {
@@ -405,8 +410,7 @@ export function IA() {
           IA que orienta. <span className="text-accent">No que estorba.</span>
         </ScrollTitle>
         <p className="mt-6 text-mute">
-          Funciones previstas para reducir el esfuerzo de búsqueda. Su implementación y validación
-          aún forman parte del alcance futuro.
+          Funciones previstas para disminuir el esfuerzo de búsqueda y facilitar la toma de decisiones. Su alcance y desarrollo están en fase de validación.
         </p>
       </div>
       <div
