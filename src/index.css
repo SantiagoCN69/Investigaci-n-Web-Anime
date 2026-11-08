@@ -38,6 +38,7 @@
   --color-line: rgb(250 252 243 / 0.12);
   --color-accent: #9e41d3;
   --color-accent-hi: #d5a9f0;
+  --color-accent-text: #c79ae8;
   --color-amber: #f2a93b;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }

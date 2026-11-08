@@ -337,7 +337,7 @@ export function IA() {
     <section className={`${wrap} section-compact`}>
       <div className="mb-16 max-w-4xl">
         <ScrollTitle className="text-[clamp(2.4rem,6vw,5.2rem)] font-semibold">
-          IA que orienta. <span className="text-accent">No que estorba.</span>
+          IA que orienta. <span className="text-accent-text">No que estorba.</span>
         </ScrollTitle>
         <p className="mt-6 text-mute">
           Funciones previstas para disminuir el esfuerzo de búsqueda y facilitar la toma de decisiones. Su alcance y desarrollo están en fase de validación.
@@ -491,7 +491,7 @@ export function Conclusiones() {
             <div className="grid items-center gap-4 border-b border-line py-10 md:grid-cols-12">
               <h3 className="text-[clamp(2rem,4.6vw,4.2rem)] font-semibold md:col-span-8">
                 <span className="text-dim">{a}</span>
-                <span className="mx-4 inline-block text-accent">→</span>
+                <span className="mx-4 inline-block text-accent-text">→</span>
                 <span>{b}</span>
               </h3>
               <p className="max-w-[34ch] text-mute md:col-span-4">{d}</p>
