@@ -79,10 +79,10 @@ export function Objetivo() {
 }
 
 const formats = [
-  ["Televisión", "Emisión por cable y horarios fijos", "tv"],
-  ["DVD físico", "Compra y coleccionismo doméstico", "disc"],
-  ["Descargas", "Archivos digitales y P2P", "download"],
-  ["Streaming", "Plataformas y apps bajo demanda", "stream"],
+  ["Televisión", "Emisión por cable y horarios fijos", "tv", "1936"],
+  ["DVD físico", "Compra y coleccionismo doméstico", "disc", "1996"],
+  ["Descargas", "Archivos digitales y P2P", "download", "1999"],
+  ["Streaming", "Plataformas y apps bajo demanda", "stream", "2007"],
 ] as const;
 
 function FormatIcon({ type }: { type: (typeof formats)[number][2] }) {
@@ -132,7 +132,6 @@ function FormatIcon({ type }: { type: (typeof formats)[number][2] }) {
 }
 
 export function Consumo() {
-  const ref = useScrollProgress<HTMLDivElement>("cross");
   return (
     <section className="section-standard border-y border-line bg-ink-2">
       <div className={wrap}>
@@ -141,23 +140,18 @@ export function Consumo() {
           kicker="Consumo"
           title={<>Del horario fijo a la elección infinita.</>}
         />
-        <div ref={ref} className="relative">
-          <div className="absolute left-0 right-0 top-[7px] hidden h-px bg-line md:block" />
-          <div
-            className="absolute left-0 top-[7px] hidden h-px w-full origin-left bg-accent md:block"
-            style={{ transform: "scaleX(clamp(0, calc((var(--p) - 0.25) * 3.2), 1))" }}
-          />
+        <div>
           <div className="grid gap-10 md:grid-cols-4 md:gap-6">
-            {formats.map(([t, d, icon], i) => (
+            {formats.map(([t, d, icon, year], i) => (
               <Reveal
                 key={t}
                 delay={i * 110}
                 className="group border-t border-line py-6 first:border-t-0 md:border-0 md:py-0"
               >
                 <div className="mb-5 flex items-center justify-between md:mb-0 md:block">
-                  <span
-                    className={`relative block size-[15px] rounded-full border md:mb-7 ${i === 3 ? "border-accent bg-accent" : "border-paper/40 bg-ink-2"}`}
-                  />
+                  <span className="mono text-xs tracking-[0.2em] text-accent-hi md:mb-3 md:block w-fit ml-auto mr-12">
+                    {year}
+                  </span>
                   <FormatIcon type={icon} />
                 </div>
                 <h3 className="text-3xl font-semibold">{t}</h3>
