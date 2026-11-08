@@ -296,7 +296,6 @@ export function UX() {
                 loading="lazy"
                 decoding="async"
               />
-              <span className="continuity-shot__trace" aria-hidden="true" />
             </div>
           </Reveal>
           <Reveal
@@ -314,7 +313,6 @@ export function UX() {
                 loading="lazy"
                 decoding="async"
               />
-              <span className="continuity-shot__trace" aria-hidden="true" />
             </div>
           </Reveal>
         </div>

@@ -874,17 +874,6 @@
     transform 900ms var(--ease-out-expo);
 }
 
-.continuity-shot__trace {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
 .tech-icon {
   position: relative;
   isolation: isolate;
@@ -1114,7 +1103,7 @@
   .reveal--mask.reveal--visible {
     opacity: 1;
     filter: blur(0);
-    clip-path: inset(0);
+    clip-path: inset(-80px);
     transform: none;
   }
   .reveal .draw-x {
@@ -1246,10 +1235,6 @@
   }
   .product-journey:hover .product-shot--episodes img {
     transform: translateX(1.25%) scale(1.012);
-  }
-  .continuity-shot.reveal--visible .continuity-shot__trace {
-    transform: scaleX(1);
-    transition: transform 1.2s var(--ease-out-expo) 500ms;
   }
   .continuity-shot:hover img {
     filter: brightness(1.035);
@@ -1415,9 +1400,6 @@
   .shot-zoom__bg,
   .shot-zoom__frame {
     animation: none;
-  }
-  .continuity-shot__trace {
-    transform: scaleX(1);
   }
   .reference-icon__asset {
     transform: scale(var(--reference-scale));

@@ -252,9 +252,7 @@ export function Perfiles() {
               <h3 className="text-3xl font-semibold text-accent-hi md:text-4xl">
                 ¿Cómo actúa el usuario frente al catálogo?
               </h3>
-              <p className="mt-4 max-w-[40ch] text-sm text-mute">
-                Tres necesidades detectadas en el recorrido de descubrimiento y uso.
-              </p>
+
             </Reveal>
             <ul className="mt-10">
               {[
