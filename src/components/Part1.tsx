@@ -377,7 +377,7 @@ export function EvolucionVisual() {
                     <h3 className="text-3xl font-semibold md:text-4xl">{e.t}</h3>
                     <p className="mt-3 flex max-w-[44ch] items-baseline gap-3 text-mute">
                       <span>{e.d}</span>
-                      <span className="mono ml-auto shrink-0 whitespace-nowrap text-right text-accent-hi">
+                      <span className="mono ml-auto shrink-0 whitespace-nowrap text-right text-accent-hi self-end">
                         {e.y}
                       </span>
                     </p>
