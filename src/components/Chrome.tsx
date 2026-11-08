@@ -112,28 +112,18 @@ export function Nav() {
 }
 
 export function SectionHead({
-  kicker,
   title,
   lead,
 }: {
-  kicker: string;
   title: React.ReactNode;
   lead?: string;
 }) {
   return (
-    <div className="mb-14 grid gap-6 md:mb-20 md:grid-cols-12">
-      <div className="md:col-span-3">
-        <div className="mono flex items-center gap-3 text-accent-hi">
-          <span className="h-px w-8 bg-accent-hi/50" />
-          <span className="text-dim">{kicker}</span>
-        </div>
-      </div>
-      <div className="md:col-span-9">
-        <ScrollTitle className="text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold">
-          {title}
-        </ScrollTitle>
-        {lead && <p className="mt-6 max-w-[56ch] text-lg text-mute">{lead}</p>}
-      </div>
+    <div className="mb-14 md:mb-20">
+      <ScrollTitle className="text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold">
+        {title}
+      </ScrollTitle>
+      {lead && <p className="mt-6 max-w-[56ch] text-lg text-mute">{lead}</p>}
     </div>
   );
 }

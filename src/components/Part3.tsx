@@ -170,10 +170,6 @@ export function Solucion() {
       <div className={wrap}>
         <div className="grid items-center gap-14 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-7">
-            <div className="mono mb-8 flex items-center gap-3 text-accent-hi">
-              <span className="h-px w-8 bg-accent-hi/50" />
-              <span className="text-dim">Definición de producto</span>
-            </div>
             <ScrollTitle className="text-[clamp(2.4rem,6vw,5.4rem)] font-semibold">
               Descubrir, organizar y continuar{" "}
               <span className="text-accent-hi">sin cambiar de contexto.</span>
@@ -212,7 +208,6 @@ export function Funcionalidades() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        kicker="Sistema de producto"
         title="Menos fricción. Más control."
         lead="Cuatro decisiones convierten los hallazgos de la investigación en comportamiento de producto."
       />
@@ -266,7 +261,6 @@ export function UX() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          kicker="Continuidad"
           title="Recordar dónde ibas no debería ser trabajo."
         />
         <div className="grid gap-10 md:grid-cols-12">
@@ -342,10 +336,6 @@ export function IA() {
   return (
     <section className={`${wrap} section-compact`}>
       <div className="mb-16 max-w-4xl">
-        <div className="mono mb-8 flex items-center gap-3 text-accent-hi">
-          <span className="h-px w-8 bg-accent-hi/50" />
-          <span className="text-dim">Inteligencia artificial</span>
-        </div>
         <ScrollTitle className="text-[clamp(2.4rem,6vw,5.2rem)] font-semibold">
           IA que orienta. <span className="text-accent">No que estorba.</span>
         </ScrollTitle>
@@ -436,7 +426,6 @@ export function Bases() {
     <section className="section-standard border-y border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          kicker="Tecnología"
           title="Cinco capas, una sola experiencia."
           lead="La interfaz es solo la superficie. AniZen también necesita contratos de datos, lógica de servidor, persistencia y una infraestructura operable."
         />
@@ -493,7 +482,6 @@ export function Conclusiones() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        kicker="Conclusiones"
         title="Investigar antes de diseñar cambia el resultado."
         lead="Los referentes definieron el estándar, la muestra reveló las necesidades y AniZen convierte ambos aprendizajes en decisiones verificables."
       />
@@ -623,11 +611,7 @@ export function Fuentes() {
     <section id="fuentes" className="section-standard-top border-t border-line bg-ink-2 pb-14">
       <div className={wrap}>
         <div className="mb-16 grid gap-6 md:grid-cols-12">
-          <div className="mono flex items-center gap-3 text-accent-hi md:col-span-3">
-            <span className="h-px w-8 bg-accent-hi/50" />
-            <span className="text-dim">Fuentes</span>
-          </div>
-          <div className="md:col-span-9">
+          <div className="md:col-span-12">
             <div className="flex items-start justify-between gap-6">
               <ScrollTitle className="text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold">
                 Fuentes y recursos de estudio

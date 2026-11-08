@@ -41,7 +41,6 @@ export function Demografia() {
     <section id="usuarios" className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          kicker="Demografía"
           title="Joven, digital y exigente."
           lead="Población universitaria de Cartagena · n = 350."
         />
@@ -101,7 +100,7 @@ export function Demografia() {
           </div>
 
           <div className="md:col-span-6 md:col-start-7">
-            <p className="mb-8 text-lg text-dim">Motivos:</p>
+            <p className="text-lg text-dim color-[#1a1a1a]">Motivos:</p>
             <div>
               {motivos.map(([l, v], i) => (
                 <Reveal key={l} delay={i * 70} className="py-6">
@@ -135,12 +134,11 @@ export function Necesidades() {
   return (
     <section className={`${wrap} section-standard`}>
       <SectionHead
-        kicker="Necesidades"
         title="El anime deja huella en la vida cotidiana."
         lead="El entretenimiento domina, pero la influencia también alcanza la rutina, la reflexión y el aprendizaje."
       />
       <div className="grid gap-16 md:grid-cols-12 md:gap-10">
-        <Reveal className="md:col-span-5">
+        <Reveal className="md:col-span-5 flex flex-col justify-center">
           <div className="font-display text-[clamp(4.5rem,9.5vw,8rem)] font-semibold leading-[0.82] tracking-[-0.06em]">
             <CountUp to={96.2} />
           </div>
@@ -218,7 +216,6 @@ export function Perfiles() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          kicker="Usuarios"
           title="No existe un solo tipo de usuario."
           lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema."
         />
@@ -344,7 +341,6 @@ export function Oportunidades() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        kicker="Comparación"
         title="Tres modelos, tres carencias estructurales."
         lead="La comparación no busca declarar un ganador, sino exponer cómo el modelo de negocio de cada plataforma define sus limitaciones técnicas y de contenido."
       />

@@ -134,10 +134,7 @@ export function Consumo() {
   return (
     <section className="section-standard border-y border-line bg-ink-2">
       <div className={wrap}>
-        <SectionHead
-          kicker="Consumo"
-          title={<>Del horario fijo a la elección infinita.</>}
-        />
+        <SectionHead title={<>Del horario fijo a la elección infinita.</>} />
         <div>
           <div className="grid gap-10 md:grid-cols-4 md:gap-6">
             {formats.map(([t, d, icon, year], i) => (
@@ -345,10 +342,6 @@ export function EvolucionVisual() {
         <div className={wrap}>
           <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
-              <div className="mono mb-6 flex items-center gap-3 text-accent-hi">
-                <span className="h-px w-8 bg-accent-hi/50" />
-                <span className="text-dim">Evolución visual</span>
-              </div>
               <ScrollTitle className="text-[clamp(2.2rem,4.6vw,4.2rem)] font-semibold">
                 La interfaz siguió al hábito.
               </ScrollTitle>
@@ -623,7 +616,6 @@ export function Referentes() {
   return (
     <section id="referentes" className={`${wrap} section-standard`}>
       <SectionHead
-        kicker="Referentes"
         title="Tres modelos para una misma audiencia."
         lead="Crunchyroll especializa, Netflix personaliza y la web abierta prioriza el acceso. La comparación permite separar estándares, ventajas y fricciones."
       />
