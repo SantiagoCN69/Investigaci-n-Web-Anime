@@ -178,22 +178,40 @@ export function Necesidades() {
   );
 }
 
-const perfiles: [string, string, string][] = [
-  ["El explorador", "Busca nuevos títulos y necesita recorrer géneros con criterio.", "usersearch"],
-  ["El seguidor", "Quiere volver al episodio correcto sin reconstruir su recorrido.", "play"],
+const perfiles: [string, string, string, string][] = [
+  [
+    "El explorador",
+    "Busca descubrir nuevos títulos.",
+    "Filtros avanzados (género, demografía, estudio, año) y referencias detalladas antes de reproducir.",
+    "usersearch",
+  ],
+  [
+    "El seguidor",
+    "Consume simulcasts y series en emisión.",
+    "Acceso directo e inmediato al último episodio de sus series, sin fricción en la navegación.",
+    "play",
+  ],
   [
     "El organizador",
-    "Ordena favoritos, pendientes y series completadas en una biblioteca propia.",
+    "Gestiona su propio ecosistema de visualización.",
+    "Herramientas de listas (pendientes, favoritos, completados) y facilidades para replicar su gestión en MyAnimeList.",
     "maleta",
   ],
-  ["El casual", "Quiere decidir rápido y necesita pocas opciones, pero bien elegidas.", "sofa"],
-];
-const comport = [
-  ["Consumo por temporadas", "Seguimiento riguroso de estrenos semanales (simulcasts)."],
-  ["Decisión asistida", "Filtros y recomendaciones reducen el tiempo dedicado a elegir."],
   [
-    "Gestión personal",
-    "Uso de listas externas (MyAnimeList) para organizar lo visto; guardado independiente.",
+    "El casual",
+    "Tolera poco esfuerzo cognitivo.",
+    "Recomendaciones directas, decisiones asistidas y una interfaz limpia con opciones limitadas pero precisas.",
+    "sofa",
+  ],
+];
+const requisitos: [string, string][] = [
+  [
+    "Rendimiento y seguridad",
+    "Acceso web rápido, interfaz limpia y ausencia total de publicidad intrusiva o maliciosa.",
+  ],
+  [
+    "Toma de decisión ágil",
+    "Sistemas de recomendación que reduzcan el tiempo de fricción al elegir contenido.",
   ],
 ];
 
@@ -205,10 +223,10 @@ export function Perfiles() {
           n="07"
           kicker="Usuarios"
           title="No existe un solo tipo de usuario."
-          lead="Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema. No representan grupos estadísticos cerrados: deben contrastarse mediante entrevistas, pruebas de uso y datos de comportamiento."
+          lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema. No representan grupos estadísticos cerrados: deben contrastarse mediante entrevistas, pruebas de uso y datos de comportamiento."
         />
         <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">
-          {perfiles.map(([title, description, icon], i) => (
+          {perfiles.map(([title, role, needs, icon], i) => (
             <Reveal
               key={title}
               delay={i * 70}
@@ -226,48 +244,40 @@ export function Perfiles() {
               <h3 className="relative mt-5 text-[clamp(1.6rem,3.2vw,2.6rem)] font-semibold leading-[1.05]">
                 {title}
               </h3>
-              <p className="relative mt-3 max-w-[38ch] text-mute">{description}</p>
+              <p className="relative mt-3 max-w-[38ch] text-mute">{role}</p>
+              <div className="relative mt-6">
+                <span className="mono text-accent-hi">Necesita</span>
+                <p className="mt-1 max-w-[42ch] text-sm text-paper/80">{needs}</p>
+              </div>
             </Reveal>
           ))}
         </div>
 
         <div className="mt-28 grid gap-14 md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 flex items-center justify-center">
             <Reveal>
               <h3 className="text-3xl font-semibold md:text-4xl">
-                Comportamiento del usuario actual
+                Requisitos transversales del producto
               </h3>
+              <p className="mt-5 max-w-[38ch] text-mute">
+                Independientemente del perfil, el sistema debe garantizar:
+              </p>
             </Reveal>
-            <div className="mt-10">
-              {comport.map(([t, d], i) => (
-                <Reveal key={t} delay={i * 80} className="border-t border-line py-5">
-                  <h4 className="font-semibold">{t}</h4>
-                  <p className="mt-1 text-sm text-mute">{d}</p>
-                </Reveal>
-              ))}
-            </div>
           </div>
           <div className="md:col-span-6 md:col-start-7">
-            <Reveal>
-              <h3 className="text-3xl font-semibold text-accent-hi md:text-4xl">
-                ¿Cómo actúa el usuario frente al catálogo?
-              </h3>
-
-            </Reveal>
-            <ul className="mt-10">
-              {[
-                "Busca referencias detalladas antes de iniciar una serie nueva.",
-                "Requiere filtros específicos por género, demografía, estudio y año.",
-                "Demanda acceso web rápido, limpio y sin publicidad maliciosa.",
-              ].map((t, i) => (
+            <ul className="md:mt-2">
+              {requisitos.map(([t, d], i) => (
                 <Reveal
                   as="li"
                   key={t}
                   delay={i * 90}
-                  className="flex items-baseline gap-5 border-t border-line py-5 text-lg last:border-b"
+                  className="flex items-baseline gap-5 border-t border-line py-5 last:border-b"
                 >
                   <span className="text-2xl font-bold text-accent-hi">→</span>
-                  {t}
+                  <div>
+                    <h4 className="font-semibold">{t}</h4>
+                    <p className="mt-1 text-sm text-mute">{d}</p>
+                  </div>
                 </Reveal>
               ))}
             </ul>
@@ -365,20 +375,6 @@ export function Oportunidades() {
           ))}
         </Reveal>
       ))}
-      <p className="mt-8 max-w-[80ch] text-xs leading-relaxed text-dim">
-        <a
-          href="https://www.youtube.com/watch?v=ainqwTW4s_k"
-          target="_blank"
-          rel="noreferrer"
-          data-action
-          className="text-accent-hi underline underline-offset-2 hover:text-paper"
-        >
-          Crunchyroll VS Netflix en animes
-        </a>{" "}
-        — Este análisis en video expone en detalle cómo compiten actualmente las estrategias de
-        catálogo y exclusividad entre Crunchyroll y Netflix, lo que resulta útil para fundamentar
-        las diferencias en sus modelos de distribución.
-      </p>
     </section>
   );
 }
