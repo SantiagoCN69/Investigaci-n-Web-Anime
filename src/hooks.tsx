@@ -40,7 +40,7 @@ export function Reveal({
   delay?: number;
   as?: ElementType;
   className?: string;
-  variant?: "fade" | "mask";
+  variant?: "fade" | "mask" | "pop";
   style?: CSSProperties;
 }) {
   const [ref, seen] = useInView<HTMLElement>(0.12);

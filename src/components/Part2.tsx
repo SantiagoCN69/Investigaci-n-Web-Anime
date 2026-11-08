@@ -230,7 +230,8 @@ export function Perfiles() {
             <Reveal
               key={title}
               delay={i * 70}
-              className={`profile-card relative flex flex-col overflow-hidden border border-line bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9 ${
+              variant="pop"
+              className={`profile-card ${i % 2 === 0 ? "profile-card--left" : "profile-card--right"} relative flex flex-col overflow-hidden border border-line bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9 ${
                 i === 0 ? "md:min-h-[15rem]" : "min-h-[15rem]"
               } ${["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"][i] ?? ""}`}
             >

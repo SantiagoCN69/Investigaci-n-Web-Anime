@@ -51,6 +51,7 @@
     font-size: 16px;
     line-height: 1.55;
     overflow-x: hidden;
+    overflow-x: clip;
   }
   ::selection {
     background: var(--color-accent);
@@ -938,6 +939,33 @@
   }
   .reveal--fade.profile-card.reveal--visible {
     transform: none;
+  }
+  .reveal--pop {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 28px, 0) rotate(-3deg) scale(0.86);
+    transform-origin: 50% 120%;
+    transition:
+      opacity 550ms ease-out var(--d),
+      filter 900ms var(--ease-out-expo) var(--d),
+      transform 1.05s var(--ease-out-expo) var(--d);
+    will-change: opacity, filter, transform;
+  }
+  .reveal--pop.profile-card--right {
+    transform: translate3d(0, 28px, 0) rotate(3deg) scale(0.86);
+  }
+  .reveal--pop.reveal--visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+  @media (max-width: 767px) {
+    .reveal--pop {
+      transform: translate3d(0, 22px, 0) rotate(-1.5deg) scale(0.9);
+    }
+    .reveal--pop.profile-card--right {
+      transform: translate3d(0, 22px, 0) rotate(1.5deg) scale(0.9);
+    }
   }
   .reveal--mask {
     opacity: 0;
