@@ -578,9 +578,15 @@ export function Fuentes() {
         </div>
         <Reveal>
           <div className="grid overflow-hidden border border-line bg-ink md:grid-cols-12">
-            <div className="group p-3 md:col-span-8 md:p-5">
+            <a
+              href={`https://www.google.com/search?q=${encodeURIComponent(selected.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-3 md:col-span-8 md:p-5"
+              aria-label={`Buscar ${selected.title} en Google`}
+            >
               <ResourceVisual resource={selected} priority />
-            </div>
+            </a>
             <div className="flex min-h-[18rem] flex-col justify-between border-t border-line p-7 md:col-span-4 md:border-l md:border-t-0 md:p-9">
               <div>
                 <div className="flex items-center justify-between">
