@@ -115,16 +115,13 @@ function FormatIcon({ type }: { type: (typeof formats)[number][2] }) {
   };
 
   return (
-    <span
-      className="format-icon flex size-14 items-center justify-center rounded-full border border-accent/30 bg-accent/5 text-accent-hi md:mb-7 md:size-12"
-      aria-hidden="true"
-    >
+    <span className="format-icon block text-dim md:mb-7" aria-hidden="true">
       <svg
         viewBox="0 0 24 24"
-        className="size-7"
+        className="size-12"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.25"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
