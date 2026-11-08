@@ -301,7 +301,6 @@ export function IA() {
             delay={i * 70}
             className="grid gap-4 border-b border-line py-8 md:grid-cols-12 md:items-baseline"
           >
-            <span className="mono text-accent md:col-span-1">0{i + 1}</span>
             <h3 className="text-2xl font-semibold md:col-span-4">{t}</h3>
             <p className="max-w-[52ch] text-mute md:col-span-6 md:col-start-7">{d}</p>
           </Reveal>
