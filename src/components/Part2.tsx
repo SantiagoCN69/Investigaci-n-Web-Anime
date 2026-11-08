@@ -196,11 +196,15 @@ export function Necesidades() {
   );
 }
 
-const perfiles = [
-  "El explorador — Busca nuevos títulos y necesita recorrer géneros con criterio.",
-  "El seguidor — Quiere volver al episodio correcto sin reconstruir su recorrido.",
-  "El organizador — Ordena favoritos, pendientes y series completadas en una biblioteca propia.",
-  "El casual — Quiere decidir rápido y necesita pocas opciones, pero bien elegidas.",
+const perfiles: [string, string, string][] = [
+  ["El explorador", "Busca nuevos títulos y necesita recorrer géneros con criterio.", "usersearch"],
+  ["El seguidor", "Quiere volver al episodio correcto sin reconstruir su recorrido.", "play"],
+  [
+    "El organizador",
+    "Ordena favoritos, pendientes y series completadas en una biblioteca propia.",
+    "maleta",
+  ],
+  ["El casual", "Quiere decidir rápido y necesita pocas opciones, pero bien elegidas.", "sofa"],
 ];
 const comport = [
   ["Consumo por temporadas", "Seguimiento riguroso de estrenos semanales (simulcasts)."],
@@ -228,22 +232,27 @@ export function Perfiles() {
             mediante entrevistas, pruebas de uso y datos de comportamiento.
           </p>
         </Reveal>
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6 md:pb-10">
-          {perfiles.map((perfil, i) => {
-            const [title, description] = perfil.split(" — ");
-            return (
-              <Reveal
-                key={title}
-                delay={i * 70}
-                className="profile-card flex min-h-[15rem] flex-col justify-between bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9"
-              >
-                <h3 className="text-[clamp(1.6rem,3.2vw,2.6rem)] font-semibold leading-[1.05]">
-                  {title}
-                </h3>
-                <p className="mt-12 max-w-[38ch] text-mute">{description}</p>
-              </Reveal>
-            );
-          })}
+        <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">
+          {perfiles.map(([title, description, icon], i) => (
+            <Reveal
+              key={title}
+              delay={i * 70}
+              className={`profile-card relative flex flex-col overflow-hidden border border-line bg-paper/[0.035] px-6 py-7 md:px-9 md:py-9 ${
+                i === 0 ? "md:min-h-[15rem]" : "min-h-[15rem]"
+              } ${["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"][i] ?? ""}`}
+            >
+              <img
+                src={`/assets/usuarios/${icon}.svg`}
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-6 -right-2 size-40 select-none opacity-[0.08] md:-bottom-8 md:size-52 md:opacity-[0.1]"
+              />
+              <h3 className="relative mt-5 text-[clamp(1.6rem,3.2vw,2.6rem)] font-semibold leading-[1.05]">
+                {title}
+              </h3>
+              <p className="relative mt-3 max-w-[38ch] text-mute">{description}</p>
+            </Reveal>
+          ))}
         </div>
 
         <div className="mt-28 grid gap-14 md:grid-cols-12">
