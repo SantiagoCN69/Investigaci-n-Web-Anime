@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { ScrollTitle, SectionHead, wrap } from "./Chrome";
 import { Reveal, useInView } from "../hooks";
 
@@ -278,6 +278,7 @@ const ia = [
 ];
 
 export function IA() {
+  const [ref, seen] = useInView<HTMLDivElement>(0.3);
   return (
     <section className={`${wrap} section-compact`}>
       <div className="mb-16 max-w-4xl">
@@ -294,16 +295,27 @@ export function IA() {
           aún forman parte del alcance futuro.
         </p>
       </div>
-      <div className="border-t border-line">
+      <div
+        ref={ref}
+        data-ia-in={seen}
+        className="ia-blocks mx-auto grid max-w-2xl gap-4 md:gap-5"
+      >
         {ia.map(([t, d], i) => (
-          <Reveal
+          <div
             key={t}
-            delay={i * 70}
-            className="grid gap-4 border-b border-line py-8 md:grid-cols-12 md:items-baseline"
+            className="ia-block h-full"
+            style={
+              {
+                "--ia-x": `${i % 2 === 0 ? "-" : ""}${(i + 1) * 90}px`,
+                "--ia-delay": `${i * 110}ms`,
+              } as CSSProperties
+            }
           >
-            <h3 className="text-2xl font-semibold md:col-span-4">{t}</h3>
-            <p className="max-w-[52ch] text-mute md:col-span-6 md:col-start-7">{d}</p>
-          </Reveal>
+            <div className="ia-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7">
+              <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
+            </div>
+          </div>
         ))}
       </div>
     </section>

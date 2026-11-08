@@ -420,6 +420,17 @@
   }
 }
 
+@keyframes ia-block-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--ia-x, 0px), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes tech-tick-in {
   0% {
     opacity: 0;
@@ -1119,6 +1130,25 @@
     background-color: rgb(250 252 243 / 0.05);
     transform: translateY(-3px);
   }
+  .ia-block {
+    opacity: 0;
+    transform: translate3d(var(--ia-x, 0px), 0, 0);
+    will-change: transform, opacity;
+  }
+  .ia-blocks[data-ia-in="true"] .ia-block {
+    animation: ia-block-in 1s var(--ease-out-expo) var(--ia-delay, 0ms) both;
+  }
+  .ia-card {
+    transition:
+      border-color 350ms ease,
+      background-color 350ms ease,
+      transform 500ms var(--ease-out-expo);
+  }
+  .ia-card:hover {
+    border-color: rgb(213 169 240 / 0.45);
+    background-color: rgb(250 252 243 / 0.05);
+    transform: translateY(-3px);
+  }
   .reference-row:hover .reference-icon {
     border-color: color-mix(in srgb, var(--reference-border), white 28%);
     box-shadow:
@@ -1219,6 +1249,17 @@
     transition: none;
   }
   .func-card:hover {
+    transform: none;
+  }
+  .ia-block {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .ia-card {
+    transition: none;
+  }
+  .ia-card:hover {
     transform: none;
   }
 }
