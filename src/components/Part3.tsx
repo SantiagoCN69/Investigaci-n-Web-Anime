@@ -252,7 +252,7 @@ export function Funcionalidades() {
                 data-card={i}
                 className="func-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7"
               >
-                <h3 className="mt-6 text-xl font-semibold md:text-2xl">{t}</h3>
+                <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
               </div>
             </Reveal>
@@ -287,7 +287,7 @@ export function UX() {
             delay={120}
             className="continuity-shot md:col-span-5 md:self-center"
           >
-            <div className="continuity-shot__viewport">
+            <div>
               <img
                 src="/assets/anizen-episode-selector.webp"
                 alt="Selector de episodios de AniZen con capítulos vistos, episodio seleccionado y capítulos pendientes"
@@ -305,7 +305,7 @@ export function UX() {
             delay={200}
             className="continuity-shot md:col-span-12"
           >
-            <div className="continuity-shot__viewport">
+            <div>
               <img
                 src="/assets/anizen-continue-watching.webp"
                 alt="Sección Continuar viendo de AniZen con cuatro series, episodios activos y barras de progreso"

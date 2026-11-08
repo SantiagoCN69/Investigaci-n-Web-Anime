@@ -649,7 +649,7 @@
 .product-shot--detail {
   z-index: 1;
   width: 94%;
-  margin-left: auto;
+  margin-inline: auto;
 }
 
 .product-shot--episodes {
@@ -863,20 +863,7 @@
   color: var(--color-accent-hi);
 }
 
-.continuity-shot__viewport {
-  position: relative;
-  overflow: hidden;
-  background: #09080b;
-  box-shadow: 0 30px 58px -38px rgb(0 0 0 / 0.9);
-}
 
-.continuity-shot__viewport::after {
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgb(250 252 243 / 0.09);
-  content: "";
-  pointer-events: none;
-}
 
 .continuity-shot img {
   display: block;
@@ -1107,6 +1094,9 @@
     }
     .reveal--pop.profile-card--right {
       transform: translate3d(0, 22px, 0) rotate(1.5deg) scale(0.9);
+    }
+    .reveal--pop.profile-card.reveal--visible {
+      transform: none;
     }
   }
   .reveal--mask {

@@ -231,7 +231,7 @@ export function Perfiles() {
           ))}
         </div>
 
-        <div className="mt-28 grid gap-14 md:grid-cols-12">
+        <div className="mt-28 grid gap-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
             <Reveal>
               <h3 className="text-3xl font-semibold md:text-4xl">
@@ -249,9 +249,12 @@ export function Perfiles() {
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <Reveal>
-              <h3 className="text-3xl font-semibold md:text-4xl">
+              <h3 className="text-3xl font-semibold text-accent-hi md:text-4xl">
                 ¿Cómo actúa el usuario frente al catálogo?
               </h3>
+              <p className="mt-4 max-w-[40ch] text-sm text-mute">
+                Tres necesidades detectadas en el recorrido de descubrimiento y uso.
+              </p>
             </Reveal>
             <ul className="mt-10">
               {[
