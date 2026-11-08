@@ -166,6 +166,7 @@
 .scroll-title {
   --p: 0;
   --p-pct: 0%;
+  max-width: 700px;
   color: var(--color-paper);
 }
 
