@@ -455,13 +455,13 @@ export function Bases() {
               <TechIcon src={icon} index={i} />
               <h3
                 className="mt-6 text-2xl font-semibold md:text-3xl"
-                style={{ fontFamily: "'Inter:Semi Bold', Inter, sans-serif" }}
+                style={{ fontFamily: "'Golos:Semi Bold', 'Golos Text', sans-serif" }}
               >
                 {title}
               </h3>
               <p
                 className="mt-2 max-w-[34ch] text-sm text-mute md:text-base"
-                style={{ fontFamily: "'Inter:Regular', Inter, sans-serif" }}
+                style={{ fontFamily: "'Golos:Regular', 'Golos Text', sans-serif" }}
               >
                 {description}
               </p>
@@ -665,7 +665,7 @@ export function Fuentes() {
                 <div className="flex items-center justify-between">
                   <span
                     className="mono text-accent-hi"
-                    style={{ fontFamily: "'Inter:Medium', Inter, sans-serif" }}
+                    style={{ fontFamily: "'Golos:Medium', 'Golos Text', sans-serif" }}
                   >
                     {selected.category}
                   </span>
@@ -676,13 +676,13 @@ export function Fuentes() {
                 </div>
                 <h3
                   className="mt-8 text-3xl font-semibold md:text-4xl"
-                  style={{ fontFamily: "'Inter:Semi Bold', Inter, sans-serif" }}
+                  style={{ fontFamily: "'Golos:Semi Bold', 'Golos Text', sans-serif" }}
                 >
                   {selected.title}
                 </h3>
                 <p
                   className="mt-4 max-w-[34ch] text-mute"
-                  style={{ fontFamily: "'Inter:Regular', Inter, sans-serif" }}
+                  style={{ fontFamily: "'Golos:Regular', 'Golos Text', sans-serif" }}
                 >
                   {selected.description}
                 </p>
@@ -726,7 +726,7 @@ export function Fuentes() {
                 <span className="flex items-center justify-between gap-3 border-t border-line px-3 py-3">
                   <span
                     className={`truncate text-sm ${active === i ? "text-paper" : "text-mute"}`}
-                    style={{ fontFamily: "'Inter:Medium', Inter, sans-serif" }}
+                    style={{ fontFamily: "'Golos:Medium', 'Golos Text', sans-serif" }}
                   >
                     {resource.title}
                   </span>
