@@ -537,7 +537,7 @@ export function Producto() {
         </p>
       </div>
 
-      <div className="mt-14 grid gap-4 md:mt-24 md:grid-cols-3 md:items-end md:gap-6">
+      <div className="mt-10 grid gap-4 md:mt-20 md:grid-cols-3 md:items-end md:gap-6">
         {[
           {
             title: "Descubrimiento",
