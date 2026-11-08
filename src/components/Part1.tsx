@@ -310,7 +310,7 @@ function EraMock({ i }: { i: number }) {
             {["Todo", "Acción", "Drama", "Ciencia ficción", "Seinen"].map((c, k) => (
               <span
                 key={c}
-                className={`rounded-full px-2.5 py-1 text-[9px] ${k === 0 ? "bg-accent text-ink" : "bg-white/10 text-white/60"}`}
+                className={`rounded-full px-2.5 py-1 text-[9px] ${k === 0 ? "bg-accent text-ink" : "bg-paper/10 text-mute"}`}
               >
                 {c}
               </span>
