@@ -601,7 +601,7 @@ function ResourceVisual({
 
   return (
     <div
-      className={`relative aspect-[16/11] overflow-hidden bg-[#101010] ${priority ? "ring-1 ring-accent/40" : ""}`}
+      className={`relative aspect-[16/11] overflow-hidden`}
       role={decorative ? undefined : "img"}
       aria-label={decorative ? undefined : `Miniatura de ${resource.title}`}
       aria-hidden={decorative || undefined}
