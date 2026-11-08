@@ -624,7 +624,7 @@ export function Fuentes() {
           </div>
 
           <div
-            className="resource-scroll mt-4 grid auto-cols-[minmax(10.5rem,1fr)] grid-flow-col gap-3 overflow-x-auto pb-4"
+            className="resource-scroll mt-6 grid auto-cols-[minmax(10.5rem,1fr)] grid-flow-col gap-3 overflow-x-auto px-1 pb-6 pt-1"
             aria-label="Selector de recursos de estudio"
             role="group"
           >

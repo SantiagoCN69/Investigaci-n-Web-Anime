@@ -181,7 +181,7 @@ export function Necesidades() {
         </div>
       </div>
 
-      <Reveal className="mt-20 border-y border-line py-6">
+      <Reveal className="mt-20 py-6 px-6 bg-paper/[0.035]">
         <div className="grid gap-6 md:grid-cols-3">
           {efectos.map(([n, description]) => (
             <div key={n} className="flex items-baseline gap-4">

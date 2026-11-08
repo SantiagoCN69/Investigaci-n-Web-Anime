@@ -643,7 +643,7 @@ export function Referentes() {
         ))}
       </div>
 
-      <div className="mt-20 grid gap-10 border-y border-line py-10 md:grid-cols-12 md:items-end md:py-14">
+      <div className="mt-20 grid gap-10 py-10 md:grid-cols-12 md:items-end md:py-14">
         <Reveal className="md:col-span-4">
           <h3 className="text-3xl font-semibold md:text-4xl">
             La escala confirma que no es un nicho.
