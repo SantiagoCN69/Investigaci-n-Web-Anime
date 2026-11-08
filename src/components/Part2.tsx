@@ -52,7 +52,7 @@ export function Demografia() {
               <div className="font-display text-[clamp(4.5rem,10vw,8.5rem)] font-semibold leading-[0.85] tracking-[-0.05em] text-accent-hi">
                 <CountUp to={93.4} />
               </div>
-              <div className="mt-3 flex items-baseline justify-between border-b border-line pb-6 text-mute">
+              <div className="mt-3 flex items-baseline justify-between pb-6 text-mute">
                 <span>Estudiantes</span>
                 <span className="tabular-nums">
                   <b className="font-semibold text-paper">6,5%</b> docentes
@@ -107,7 +107,7 @@ export function Demografia() {
             </p>
             <div className="border-t border-line">
               {motivos.map(([l, v], i) => (
-                <Reveal key={l} delay={i * 70} className="border-b border-line py-6">
+                <Reveal key={l} delay={i * 70} className="py-6">
                   <div className="mb-4 flex items-start justify-between gap-6">
                     <span className="max-w-[34ch] text-paper/90">{l}</span>
                     <span className="font-display text-3xl font-semibold tabular-nums">
