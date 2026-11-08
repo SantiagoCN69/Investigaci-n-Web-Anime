@@ -44,7 +44,7 @@ export function Demografia() {
           n="05"
           kicker="Demografía"
           title="Joven, digital y exigente."
-          lead="Población universitaria de Cartagena · n = 350. Los resultados se limitan a esta muestra."
+          lead="Población universitaria de Cartagena · n = 350."
         />
         <div className="grid gap-16 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
@@ -119,7 +119,7 @@ export function Demografia() {
           </div>
         </div>
         <p className="mt-16 max-w-[90ch] text-xs leading-relaxed text-dim">
-          {SOURCE} Porcentajes originales; no se normalizan ni se añaden categorías.
+          {SOURCE}
         </p>
       </div>
     </section>
@@ -223,7 +223,7 @@ export function Perfiles() {
           n="07"
           kicker="Usuarios"
           title="No existe un solo tipo de usuario."
-          lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema. No representan grupos estadísticos cerrados: deben contrastarse mediante entrevistas, pruebas de uso y datos de comportamiento."
+          lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema."
         />
         <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">
           {perfiles.map(([title, role, needs, icon], i) => (
@@ -253,7 +253,7 @@ export function Perfiles() {
           ))}
         </div>
 
-        <div className="mt-28 grid gap-14 md:grid-cols-12 md:gap-10">
+        <div className="mt-14 grid gap-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5 flex items-center justify-center">
             <Reveal>
               <h3 className="text-3xl font-semibold md:text-4xl">
@@ -273,7 +273,7 @@ export function Perfiles() {
                   delay={i * 90}
                   className="flex items-baseline gap-5 border-t border-line py-5 last:border-b"
                 >
-                  <span className="text-2xl font-bold text-accent-hi">→</span>
+                  <span className="text-3xl font-bold text-accent-hi">→</span>
                   <div>
                     <h4 className="font-semibold">{t}</h4>
                     <p className="mt-1 text-sm text-mute">{d}</p>
