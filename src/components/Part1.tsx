@@ -596,7 +596,7 @@ export function Producto() {
             <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{title}</h3>
             <p className="mt-3 max-w-[34ch] text-sm leading-relaxed text-mute">{description}</p>
             <div
-              className="pointer-events-none absolute -bottom-14 -right-14 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
+              className="pointer-events-none absolute -bottom-12 -right-12 -rotate-6 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
               aria-hidden="true"
             >
               {icon}
