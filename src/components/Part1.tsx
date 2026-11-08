@@ -172,7 +172,7 @@ export function Consumo() {
 
         <div className="mt-24 text-center md:mt-32">
           <Reveal>
-            <div className="relative mx-auto max-w-4xl px-8 py-10 md:px-12 md:py-14">
+            <div className="slam-in relative mx-auto max-w-4xl px-8 py-10 md:px-12 md:py-14">
               <span className="pointer-events-none absolute left-0 top-0 size-6 border-l-2 border-t-2 border-accent/70" />
               <span className="pointer-events-none absolute right-0 top-0 size-6 border-r-2 border-t-2 border-accent/70" />
               <span className="pointer-events-none absolute bottom-0 left-0 size-6 border-b-2 border-l-2 border-accent/70" />
@@ -561,7 +561,6 @@ export function Producto() {
                 <path d="M33 40l5 5 9-10" />
               </svg>
             ),
-            step: "h-1/3",
             height: "md:min-h-[17rem]",
           },
           {
@@ -574,7 +573,6 @@ export function Producto() {
                 <path d="M48 34v14l10 6" />
               </svg>
             ),
-            step: "h-2/3",
             height: "md:min-h-[21rem]",
           },
           {
@@ -587,19 +585,14 @@ export function Producto() {
                 <path d="M68 32v44" />
               </svg>
             ),
-            step: "h-full",
             height: "md:min-h-[25rem]",
           },
-        ].map(({ title, description, icon, step, height }, i) => (
+        ].map(({ title, description, icon, height }, i) => (
           <Reveal
             key={title}
             delay={i * 140}
             className={`group relative flex flex-col overflow-hidden border border-line bg-paper/[0.02] p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-paper/[0.04] md:p-8 ${height}`}
           >
-            <span
-              className={`absolute inset-y-0 left-0 w-[3px] origin-top bg-gradient-to-b from-accent-hi to-accent ${step}`}
-              aria-hidden="true"
-            />
             <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{title}</h3>
             <p className="mt-3 max-w-[34ch] text-sm leading-relaxed text-mute">{description}</p>
             <div
