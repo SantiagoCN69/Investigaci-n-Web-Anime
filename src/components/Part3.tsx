@@ -171,7 +171,6 @@ export function Solucion() {
         <div className="grid items-center gap-14 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-7">
             <div className="mono mb-8 flex items-center gap-3 text-accent-hi">
-              <span>09</span>
               <span className="h-px w-8 bg-accent-hi/50" />
               <span className="text-dim">Definición de producto</span>
             </div>
@@ -213,7 +212,6 @@ export function Funcionalidades() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        n="10"
         kicker="Sistema de producto"
         title="Menos fricción. Más control."
         lead="Cuatro decisiones convierten los hallazgos de la investigación en comportamiento de producto."
@@ -268,7 +266,6 @@ export function UX() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          n="11"
           kicker="Continuidad"
           title="Recordar dónde ibas no debería ser trabajo."
         />
@@ -346,7 +343,6 @@ export function IA() {
     <section className={`${wrap} section-compact`}>
       <div className="mb-16 max-w-4xl">
         <div className="mono mb-8 flex items-center gap-3 text-accent-hi">
-          <span>12</span>
           <span className="h-px w-8 bg-accent-hi/50" />
           <span className="text-dim">Inteligencia artificial</span>
         </div>
@@ -440,7 +436,6 @@ export function Bases() {
     <section className="section-standard border-y border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          n="13"
           kicker="Tecnología"
           title="Cinco capas, una sola experiencia."
           lead="La interfaz es solo la superficie. AniZen también necesita contratos de datos, lógica de servidor, persistencia y una infraestructura operable."
@@ -498,7 +493,6 @@ export function Conclusiones() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        n="14"
         kicker="Conclusiones"
         title="Investigar antes de diseñar cambia el resultado."
         lead="Los referentes definieron el estándar, la muestra reveló las necesidades y AniZen convierte ambos aprendizajes en decisiones verificables."
@@ -630,7 +624,6 @@ export function Fuentes() {
       <div className={wrap}>
         <div className="mb-16 grid gap-6 md:grid-cols-12">
           <div className="mono flex items-center gap-3 text-accent-hi md:col-span-3">
-            <span>15</span>
             <span className="h-px w-8 bg-accent-hi/50" />
             <span className="text-dim">Fuentes</span>
           </div>

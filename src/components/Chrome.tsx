@@ -112,12 +112,10 @@ export function Nav() {
 }
 
 export function SectionHead({
-  n,
   kicker,
   title,
   lead,
 }: {
-  n: string;
   kicker: string;
   title: React.ReactNode;
   lead?: string;
@@ -126,7 +124,6 @@ export function SectionHead({
     <div className="mb-14 grid gap-6 md:mb-20 md:grid-cols-12">
       <div className="md:col-span-3">
         <div className="mono flex items-center gap-3 text-accent-hi">
-          <span>{n}</span>
           <span className="h-px w-8 bg-accent-hi/50" />
           <span className="text-dim">{kicker}</span>
         </div>

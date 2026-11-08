@@ -41,7 +41,6 @@ export function Demografia() {
     <section id="usuarios" className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          n="05"
           kicker="Demografía"
           title="Joven, digital y exigente."
           lead="Población universitaria de Cartagena · n = 350."
@@ -136,7 +135,6 @@ export function Necesidades() {
   return (
     <section className={`${wrap} section-standard`}>
       <SectionHead
-        n="06"
         kicker="Necesidades"
         title="El anime deja huella en la vida cotidiana."
         lead="El entretenimiento domina, pero la influencia también alcanza la rutina, la reflexión y el aprendizaje."
@@ -220,7 +218,6 @@ export function Perfiles() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          n="07"
           kicker="Usuarios"
           title="No existe un solo tipo de usuario."
           lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema."
@@ -347,7 +344,6 @@ export function Oportunidades() {
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
-        n="08"
         kicker="Comparación"
         title="Tres modelos, tres carencias estructurales."
         lead="La comparación no busca declarar un ganador, sino exponer cómo el modelo de negocio de cada plataforma define sus limitaciones técnicas y de contenido."
