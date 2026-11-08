@@ -1,0 +1,11 @@
+{
+  "title": "Investigación Web Anime",
+  "description": "Presenta una investigación en una experiencia web profesional y dinámica, con animaciones al desplazarse y una composición cuidada que facilita explorar sus hallazgos.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
