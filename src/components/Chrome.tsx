@@ -123,7 +123,7 @@ export function SectionHead({
   lead?: string;
 }) {
   return (
-    <div className="mb-14 grid gap-6 md:mb-20 md:grid-cols-12">
+    <div className="grid gap-6 md:grid-cols-12">
       <div className="md:col-span-3">
         <div className="mono flex items-center gap-3 text-accent-hi">
           <span>{n}</span>

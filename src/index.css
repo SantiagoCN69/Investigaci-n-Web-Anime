@@ -528,6 +528,20 @@
   fill: var(--color-paper);
 }
 
+.func-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition:
+    opacity 400ms ease,
+    stroke 400ms ease;
+}
+
+.func-node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 .product-journey {
   position: relative;
   isolation: isolate;
@@ -1087,6 +1101,24 @@
   .global-reach[data-reach-in="true"] .global-reach__horizon {
     animation: global-reach-horizon 1.5s ease-out 120ms forwards;
   }
+  .func-map[data-func-map="true"] .func-line {
+    animation: global-reach-flow 1.5s var(--ease-out-expo) var(--line-delay) forwards;
+  }
+  .func-map[data-func-map="true"] .func-node {
+    animation: global-reach-pulse 700ms var(--ease-out-expo) var(--node-delay) both;
+  }
+
+  .func-card {
+    transition:
+      border-color 350ms ease,
+      background-color 350ms ease,
+      transform 500ms var(--ease-out-expo);
+  }
+  .func-card:hover {
+    border-color: rgb(213 169 240 / 0.45);
+    background-color: rgb(250 252 243 / 0.05);
+    transform: translateY(-3px);
+  }
   .reference-row:hover .reference-icon {
     border-color: color-mix(in srgb, var(--reference-border), white 28%);
     box-shadow:
@@ -1176,6 +1208,18 @@
   }
   .global-reach__horizon {
     opacity: 0.5;
+  }
+  .func-line {
+    stroke-dashoffset: 0;
+  }
+  .func-node {
+    opacity: 1;
+  }
+  .func-card {
+    transition: none;
+  }
+  .func-card:hover {
+    transform: none;
   }
 }
 

@@ -125,7 +125,23 @@ export function Solucion() {
   );
 }
 
+const MAP_ENDS = [143, 448, 752, 1057];
+const MAP_SWAY = [0.55, 0.95, 0.8, 1.15];
+const MAP_START_SPREAD = 0.1;
+
+const MAP_VIEW_TOP = -100;
+const MAP_ORIGIN_Y = -150;
+const MAP_END_Y = 180;
+
+function mapPath(x: number, k: number) {
+  const dx = x - 600;
+  const sway = MAP_SWAY[k] ?? 1;
+  const sx = 600 + dx * MAP_START_SPREAD;
+  return `M ${sx} ${MAP_ORIGIN_Y} C ${sx + dx * 0.18 * sway} ${MAP_ORIGIN_Y + 14} ${x - dx * 0.3 * sway} ${MAP_END_Y - 24} ${x} ${MAP_END_Y}`;
+}
+
 export function Funcionalidades() {
+  const [ref, seen] = useInView<HTMLDivElement>(0.3);
   return (
     <section className={`${wrap} section-compact`}>
       <SectionHead
@@ -134,18 +150,52 @@ export function Funcionalidades() {
         title="Menos fricción. Más control."
         lead="Cuatro decisiones convierten los hallazgos de la investigación en comportamiento de producto."
       />
-      <div className="border-t border-line">
-        {funcs.map(([t, d], i) => (
-          <Reveal
-            key={t}
-            delay={i * 70}
-            className="grid gap-4 border-b border-line py-8 md:grid-cols-12 md:items-baseline"
+      <div ref={ref} data-func-map={seen} className="func-map">
+        <div className="relative mx-auto hidden h-30 md:block" aria-hidden="true">
+          <svg
+            viewBox={`0 ${MAP_VIEW_TOP} 1200 ${MAP_END_Y - MAP_VIEW_TOP}`}
+            preserveAspectRatio="none"
+            className="absolute inset-0 h-full w-full overflow-visible"
           >
-            <span className="mono text-accent-hi md:col-span-1">0{i + 1}</span>
-            <h3 className="text-2xl font-semibold md:col-span-4 md:text-3xl">{t}</h3>
-            <p className="max-w-[52ch] text-mute md:col-span-6 md:col-start-7">{d}</p>
-          </Reveal>
-        ))}
+            <defs>
+              <linearGradient id="func-line-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#d5a9f0" stopOpacity="0" />
+                <stop offset=".45" stopColor="#d5a9f0" stopOpacity=".28" />
+                <stop offset="1" stopColor="#9e41d3" stopOpacity=".5" />
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#func-line-grad)" strokeWidth="2.6" strokeLinecap="round">
+              {MAP_ENDS.map((x, i) => (
+                <path
+                  key={x}
+                  pathLength={1}
+                  className={`func-line func-line--${i}`}
+                  style={{ ["--line-delay" as string]: `${150 + i * 140}ms` }}
+                  d={mapPath(x, i)}
+                />
+              ))}
+            </g>
+            {MAP_ENDS.map((x, i) => (
+              <g key={x} className="func-node" style={{ ["--node-delay" as string]: `${620 + i * 140}ms` }}>
+                <circle cx={x} cy={MAP_END_Y} r="9" fill="none" stroke="#d5a9f0" strokeOpacity=".35" />
+                <circle cx={x} cy={MAP_END_Y} r="3.4" fill="#d5a9f0" />
+              </g>
+            ))}
+          </svg>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
+          {funcs.map(([t, d], i) => (
+            <Reveal key={t} delay={i * 90} className="h-full">
+              <div
+                data-card={i}
+                className="func-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7"
+              >
+                <h3 className="mt-6 text-xl font-semibold md:text-2xl">{t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
