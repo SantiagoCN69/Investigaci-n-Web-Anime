@@ -191,7 +191,7 @@ export function Consumo() {
                 as="li"
                 key={label}
                 delay={i * 100}
-                className="grid gap-3 border-t border-line py-6 last:border-b sm:grid-cols-[9rem_1fr] sm:gap-6"
+                className="grid gap-3 py-6"
               >
                 <span className="mono text-accent-hi sm:pt-2">{label}</span>
                 <span className="text-xl text-paper/90">{text}</span>
@@ -604,10 +604,10 @@ export function Referentes() {
         title="Tres modelos para una misma audiencia."
         lead="Crunchyroll especializa, Netflix personaliza y la web abierta prioriza el acceso. La comparación permite separar estándares, ventajas y fricciones."
       />
-      <div className="border-t border-line">
+      <div className="gap-y-3 flex flex-col">
         {refs.map((reference, i) => (
           <Reveal key={reference.name} delay={i * 80}>
-            <div className="reference-row group grid grid-cols-[4rem_1fr] items-start gap-x-4 gap-y-5 border-b border-line py-10 px-5 md:grid-cols-12 md:items-center md:gap-4">
+            <div className="reference-row group grid grid-cols-[4rem_1fr] items-start gap-x-4 gap-y-5 py-10 px-5 md:grid-cols-12 md:items-center md:gap-4">
               <span
                 className={`reference-icon ${reference.tone} col-start-1 row-span-3 row-start-1 flex size-[3.75rem] items-center justify-center overflow-hidden rounded-2xl border md:col-span-1 md:col-start-auto md:row-auto`}
                 aria-hidden="true"

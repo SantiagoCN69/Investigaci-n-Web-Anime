@@ -114,7 +114,6 @@ export function Solucion() {
               delay={i * 90}
               className="border-b border-line py-8 md:border-b-0 md:pr-10"
             >
-              <span className="mono text-accent-hi">0{i + 1}</span>
               <h3 className="mt-6 text-2xl font-semibold">{t}</h3>
               <p className="mt-2 text-mute">{d}</p>
             </Reveal>
