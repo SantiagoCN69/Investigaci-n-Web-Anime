@@ -375,23 +375,27 @@ export function IA() {
 const tech = [
   [
     "Lenguajes web",
-    "Estructura, estilos, accesibilidad y comportamiento en el navegador.",
+    "Estructura semántica, estilos adaptativos y lógica en el navegador. Renderizado optimizado y carga diferida (Lazy Loading) para maximizar el rendimiento.",
     "/assets/9da02.svg",
   ],
   [
     "API",
-    "Define el contrato entre catálogo, búsqueda, perfiles y servicios.",
+    "Conecta el catálogo, búsqueda y perfiles con servicios externos e internos como MyAnimeList API v2, Kudasai, TMDB y modelos de IA.",
     "/assets/88ea7.svg",
   ],
-  ["Servidores", "Resuelven autenticación, permisos y reglas de negocio.", "/assets/158a1.svg"],
+  [
+    "Servidores",
+    "Gestionan autenticación, permisos y reglas de negocio mediante instancias distribuidas en Node.js y entornos serverless.",
+    "/assets/158a1.svg",
+  ],
   [
     "Base de datos",
-    "Conserva usuarios, listas, progreso, títulos y relaciones.",
+    "Almacena en Firebase Firestore la información de usuarios, progreso de reproducción por episodio, listas y metadatos del catálogo.",
     "/assets/3444c.svg",
   ],
   [
-    "Nube",
-    "Sostiene despliegue, observabilidad y crecimiento de la plataforma.",
+    "Nube & PWA",
+    "Despliegue distribuido y almacenamiento en caché. Experiencia instalable como PWA y accesible desde cualquier navegador.",
     "/assets/65ffa.svg",
   ],
 ];
