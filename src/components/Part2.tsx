@@ -344,10 +344,10 @@ export function Oportunidades() {
         title="Tres modelos, tres carencias estructurales."
         lead="La comparación no busca declarar un ganador, sino exponer cómo el modelo de negocio de cada plataforma define sus limitaciones técnicas y de contenido."
       />
-      <div className="hidden grid-cols-[1.1fr_1fr_1fr_1fr] gap-6 border-b border-line pb-4 md:grid">
+      <div className="hidden grid-cols-[1.1fr_1fr_1fr_1fr] gap-6 border-b border-line py-4 md:grid">
         <span />
         {cols.map((c) => (
-          <span key={c} className="mono text-accent-hi">
+          <span key={c} className="mono border-l border-line pl-6 text-accent-hi">
             {c}
           </span>
         ))}
@@ -360,7 +360,7 @@ export function Oportunidades() {
         >
           <h3 className="text-3xl font-semibold">{name}</h3>
           {cells.map(([label, c], k) => (
-            <div key={label}>
+            <div key={label} className="md:border-l md:border-line md:pl-6">
               <div className="mono mb-2 text-accent-hi md:hidden">{cols[k]}</div>
               <p className="text-sm leading-relaxed text-mute">{c}</p>
             </div>
