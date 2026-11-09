@@ -622,7 +622,7 @@ export function Referentes() {
       <div className="gap-y-3 flex flex-col">
         {refs.map((reference, i) => (
           <Reveal key={reference.name} delay={i * 80}>
-            <div className="reference-row group grid grid-cols-[4rem_1fr] items-start gap-x-4 gap-y-5 py-10 px-5 md:grid-cols-12 md:items-center md:gap-4">
+            <div className="reference-row group grid grid-cols-[4rem_1fr] items-start gap-x-4 gap-y-5 py-10 md:px-5 md:grid-cols-12 md:items-center md:gap-4">
               <span
                 className={`reference-icon ${reference.tone} col-start-1 row-span-3 row-start-1 flex size-[3.75rem] items-center justify-center overflow-hidden rounded-2xl border md:col-span-1 md:col-start-auto md:row-auto`}
                 aria-hidden="true"
