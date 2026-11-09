@@ -141,10 +141,10 @@ export function Consumo() {
               <Reveal
                 key={t}
                 delay={i * 110}
-                className="group border-t border-line py-6 first:border-t-0 md:border-0 md:py-0"
+                className="group relative border-t border-line py-6 first:border-t-0 md:border-0 md:py-0"
               >
-                <div className="mb-5 flex items-center justify-between md:mb-0 md:block">
-                  <span className="mono text-xs tracking-[0.2em] text-accent-hi md:mb-3 md:block w-fit ml-auto mr-12">
+                <div className="mb-5 flex items-center md:mb-0 md:block">
+                  <span className="absolute right-0 top-6 mono text-xs tracking-[0.2em] text-accent-hi md:static md:mb-3 md:block w-fit md:ml-auto">
                     {year}
                   </span>
                   <FormatIcon type={icon} />
