@@ -115,15 +115,17 @@ export function SectionHead({
   title,
   lead,
   centered = false,
+  titleClassName = "",
 }: {
   title: React.ReactNode;
   lead?: string;
   centered?: boolean;
+  titleClassName?: string;
 }) {
   return (
     <div className={`mb-14 md:mb-20${centered ? " text-center" : ""}`}>
       <ScrollTitle
-        className={`text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold${centered ? " mx-auto" : ""}`}
+        className={`text-[clamp(2.2rem,5.4vw,4.6rem)] font-semibold${centered ? " mx-auto" : ""}${titleClassName ? ` ${titleClassName}` : ""}`}
       >
         {title}
       </ScrollTitle>

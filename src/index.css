@@ -170,6 +170,10 @@
   color: var(--color-paper);
 }
 
+.scroll-title--full {
+  max-width: none;
+}
+
 .logo-mark {
   position: relative;
   display: block;
