@@ -573,7 +573,7 @@ export function Producto() {
             key={title}
             variant="rise"
             delay={i === 0 ? 0 : 240 + (i - 1) * 120}
-            className={`group relative flex flex-col overflow-hidden border border-line bg-paper/[0.02] p-6 transition-[border-color,background-color] duration-500 hover:border-accent/40 hover:bg-paper/[0.04] md:p-8 ${height}`}
+            className={`relative flex flex-col overflow-hidden border border-line bg-paper/[0.02] p-6 md:p-8 ${height}`}
           >
             <h3
               className="rise-card-in mt-2 text-2xl font-semibold md:text-3xl"
@@ -588,7 +588,7 @@ export function Producto() {
               {description}
             </p>
             <div
-              className="rise-card-in pointer-events-none absolute -bottom-12 -right-12 -rotate-6 size-56 text-accent/10 transition-colors duration-500 group-hover:text-accent/20 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
+              className="rise-card-in pointer-events-none absolute -bottom-12 -right-12 -rotate-6 size-56 text-accent/10 md:-bottom-20 md:-right-20 md:size-72 [&_svg]:size-full"
               style={{ ["--ci" as string]: "60ms" }}
               aria-hidden="true"
             >
