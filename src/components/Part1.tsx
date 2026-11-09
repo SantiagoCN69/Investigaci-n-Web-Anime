@@ -144,13 +144,13 @@ export function Consumo() {
                 className="group relative border-t border-line py-6 first:border-t-0 md:border-0 md:py-0"
               >
                 <div className="mb-5 flex items-center md:mb-0 md:block">
-                  <span className="absolute right-0 top-6 mono text-xs tracking-[0.2em] text-accent-hi md:static md:mb-3 md:block w-fit md:ml-auto">
+                  <span className="absolute right-0 bottom-0 text-3xl font-bold leading-none tracking-[0.15em] text-accent-hi/15 md:static md:my-3 md:block md:w-fit md:ml-auto md:text-sm md:font-normal md:tracking-[0.2em] md:text-accent-hi">
                     {year}
                   </span>
                   <FormatIcon type={icon} />
                 </div>
-                <h3 className="text-3xl font-semibold">{t}</h3>
-                <p className="mt-2 max-w-[24ch] text-mute">{d}</p>
+                <h3 className="relative text-3xl font-semibold">{t}</h3>
+                <p className="relative mt-2 max-w-[24ch] text-mute">{d}</p>
               </Reveal>
             ))}
           </div>
