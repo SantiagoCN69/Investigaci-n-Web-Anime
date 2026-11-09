@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import { createPortal } from "react-dom";
 import { ScrollTitle, SectionHead, wrap } from "./Chrome";
 import { Reveal, useInView } from "../hooks";
@@ -361,7 +368,14 @@ export function IA() {
               } as CSSProperties
             }
           >
-            <div className="ia-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7">
+            <div
+              className="ia-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+                e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+              }}
+            >
               <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
             </div>
@@ -372,7 +386,9 @@ export function IA() {
   );
 }
 
-const tech = [
+const techLinkClass = "text-accent-hi transition-colors hover:underline";
+
+const tech: [string, ReactNode, string][] = [
   [
     "Lenguajes web",
     "Estructura semántica, estilos adaptativos y lógica en el navegador. Renderizado optimizado y carga diferida (Lazy Loading) para maximizar el rendimiento.",
@@ -380,7 +396,36 @@ const tech = [
   ],
   [
     "API",
-    "Conecta el catálogo, búsqueda y perfiles con servicios externos e internos como MyAnimeList API v2, Kudasai, TMDB y modelos de IA.",
+    <>
+      Conecta el catálogo, búsqueda y perfiles con servicios externos e internos como{" "}
+      <a
+        href="https://myanimelist.net/apiconfig/references/api/v2"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={techLinkClass}
+      >
+        MyAnimeList API v2
+      </a>
+      ,{" "}
+      <a
+        href="https://kudasai.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={techLinkClass}
+      >
+        Kudasai
+      </a>
+      ,{" "}
+      <a
+        href="https://www.themoviedb.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={techLinkClass}
+      >
+        TMDB
+      </a>{" "}
+      y modelos de IA.
+    </>,
     "/assets/88ea7.svg",
   ],
   [
