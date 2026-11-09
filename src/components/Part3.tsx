@@ -269,7 +269,7 @@ export function UX() {
           <div className="md:col-span-7">
             <Reveal>
               <p className="font-display max-w-[32ch] text-[clamp(1.6rem,3.2vw,2.8rem)] font-medium leading-[1.18] tracking-[-0.02em]">
-                La portada prioriza episodios recientes, historial y estados de visualización. El
+                La portada prioriza episodios a continuar viedo, recientes y próximos. El
                 objetivo no es mostrar más contenido, sino hacer visible el siguiente paso.
               </p>
             </Reveal>
@@ -342,7 +342,7 @@ export function IA() {
           IA que orienta. <span className="text-accent-text">No que estorba.</span>
         </ScrollTitle>
         <p className="mt-6 text-mute">
-          Funciones previstas para disminuir el esfuerzo de búsqueda y facilitar la toma de decisiones. Su alcance y desarrollo están en fase de validación.
+          Funciones para disminuir el esfuerzo de búsqueda y facilitar la toma de decisiones. Su uso es limitado a fines de demostración.
         </p>
       </div>
       <div

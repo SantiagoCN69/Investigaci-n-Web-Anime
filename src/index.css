@@ -1342,17 +1342,6 @@
     animation: global-reach-pulse 700ms var(--ease-out-expo) var(--node-delay) both;
   }
 
-  .func-card {
-    transition:
-      border-color 350ms ease,
-      background-color 350ms ease,
-      transform 500ms var(--ease-out-expo);
-  }
-  .func-card:hover {
-    border-color: rgb(213 169 240 / 0.45);
-    background-color: rgb(250 252 243 / 0.05);
-    transform: translateY(-3px);
-  }
   .ia-block {
     opacity: 0;
     transform: translate3d(var(--ia-x, 0px), 0, 0);
@@ -1470,12 +1459,6 @@
   }
   .func-node {
     opacity: 1;
-  }
-  .func-card {
-    transition: none;
-  }
-  .func-card:hover {
-    transform: none;
   }
   .ia-block {
     opacity: 1;
