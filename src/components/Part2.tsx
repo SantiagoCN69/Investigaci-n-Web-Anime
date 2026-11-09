@@ -297,7 +297,7 @@ const opp: [string, [string, string][]][] = [
       ],
       [
         "Experiencia de uso",
-        "Tras la eliminación total de los comentarios y reseñas por parte de la plataforma en 2024, el recorrido perdió su componente comunitario y es ahora de consumo estrictamente aislado.",
+        "Tras la eliminación total y reseñas por parte de la plataforma en 2024, el recorrido perdió su componente comunitario y es ahora de consumo estrictamente aislado.",
       ],
     ],
   ],
@@ -319,19 +319,19 @@ const opp: [string, [string, string][]][] = [
     ],
   ],
   [
-    "AnimeFLV / Ecosistema no oficial",
+    "Web de anime online",
     [
       [
         "Catálogo",
-        "Ofrece completitud histórica sin restricciones geográficas. Centraliza líneas temporales completas (series, OVAs, películas, spin-offs) que el mercado legal mantiene fragmentadas en distintos servicios.",
+        "Ofrecen completitud histórica sin restricciones geográficas ni registro. Centralizan líneas temporales completas (series, OVAs, películas, spin-offs) que el mercado legal mantiene fragmentadas en distintos servicios.",
       ],
       [
         "Búsqueda y organización",
-        "Las búsquedas directas son eficaces al funcionar como un directorio crudo, pero la plataforma carece de un motor de recomendación inteligente guiado por el historial del usuario.",
+        "Las búsquedas directas son eficaces al funcionar como directorios crudos, pero carecen de un motor de recomendación inteligente guiado por el historial del usuario.",
       ],
       [
         "Experiencia de uso",
-        "El precio del acceso ilimitado. La navegación está constantemente minada por la fricción de la publicidad invasiva, ventanas emergentes, riesgos de seguridad y servidores de reproducción inestables.",
+        "El acceso inmediato sin suscripción. La navegación suele estar minada por la fricción de la publicidad invasiva, ventanas emergentes, riesgos de seguridad y servidores de reproducción inestables.",
       ],
     ],
   ],
