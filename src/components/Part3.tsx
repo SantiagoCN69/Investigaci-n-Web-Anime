@@ -262,7 +262,7 @@ export function UX() {
     <section className="section-standard border-t border-line bg-ink-2">
       <div className={wrap}>
         <SectionHead
-          title="Recordar dónde ibas no debería ser trabajo."
+          title="Recordar dónde ibas, no debería ser trabajo."
         />
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
