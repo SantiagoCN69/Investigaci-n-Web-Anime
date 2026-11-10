@@ -995,6 +995,35 @@
   }
 }
 
+@keyframes report-card-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 28px, 0) rotate(-4deg) scale(0.88);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, -5px, 0) rotate(0.8deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+.report-carousel__slide {
+  transition:
+    opacity 600ms ease,
+    filter 600ms ease,
+    transform 700ms var(--ease-out-expo);
+}
+
+.report-card--active {
+  animation: report-card-in 800ms var(--ease-out-expo) both;
+}
+
 @keyframes ticker-slam {
   0% {
     opacity: 0;
@@ -1469,7 +1498,8 @@
   }
   .shot-zoom,
   .shot-zoom__bg,
-  .shot-zoom__frame {
+  .shot-zoom__frame,
+  .report-card--active {
     animation: none;
   }
   .reference-icon__asset {
