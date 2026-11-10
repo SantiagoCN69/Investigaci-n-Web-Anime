@@ -12,14 +12,12 @@ export const NAV = [
 ] as const;
 
 export function Nav() {
-  const [prog, setProg] = useState(0);
   const [active, setActive] = useState("");
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const on = () => {
       const h = document.documentElement;
-      setProg(h.scrollTop / (h.scrollHeight - h.clientHeight));
       setSolid(h.scrollTop > 60);
       let cur = "";
       for (const [id] of NAV) {
@@ -45,8 +43,6 @@ export function Nav() {
       window.removeEventListener("keydown", close);
     };
   }, [open]);
-
-  const progressLabel = Math.round(prog * 100);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -81,9 +77,6 @@ export function Nav() {
               {open ? "Cerrar" : "Índice"}
             </button>
           </div>
-        </div>
-        <div className="h-px w-full bg-line">
-          <div className="h-full origin-left bg-accent" style={{ transform: `scaleX(${prog})` }} />
         </div>
       </div>
       {open && (
