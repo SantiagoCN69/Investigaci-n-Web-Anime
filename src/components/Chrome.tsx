@@ -164,10 +164,18 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
             <div className="mono mb-5 text-accent-hi">Créditos del proyecto</div>
-            <p className="text-sm text-dim">Investigación realizada por</p>
-            <p className="mt-2 font-display text-[clamp(2.3rem,5vw,4.8rem)] font-semibold leading-none tracking-[-0.04em]">
-              Santiago Cardona Nossa
-            </p>
+            <p className="text-sm text-dim">Investigación y sitio web realizados por</p>
+            <a
+              href="https://github.com/SantiagoCN69"
+              target="_blank"
+              rel="noreferrer"
+              data-action
+              className="mt-2 block w-fit transition-colors transition-transform duration-300 hover:text-accent-hi hover:translate-x-[2px]"
+            >
+              <p className="font-display text-[clamp(2.3rem,5vw,4.8rem)] font-semibold leading-none tracking-[-0.04em]">
+                Santiago Cardona Nossa
+              </p>
+            </a>
           </div>
 
           <div className="space-y-3 md:col-span-4 md:col-start-9">

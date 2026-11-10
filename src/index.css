@@ -1382,12 +1382,14 @@
     transition: opacity 400ms ease;
     pointer-events: none;
   }
-  .ia-block:has(.ia-card:hover) {
+  .ia-block:has(.ia-card:hover, .ia-card:active) {
     z-index: 2;
   }
 
   .ia-card:hover::before,
-  .ia-card:hover::after {
+  .ia-card:active::before,
+  .ia-card:hover::after,
+  .ia-card:active::after {
     opacity: 1;
   }
   .reference-row:hover .reference-icon {
