@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SectionHead, ScrollTitle, wrap } from "./Chrome";
 import { Reveal } from "../hooks";
 
@@ -76,8 +76,18 @@ function Chevron({ dir }: { dir: "left" | "right" }) {
   );
 }
 
+function shuffled<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 function ResultadosCarousel() {
-  const count = participantes.length;
+  const order = useMemo(() => shuffled(participantes), []);
+  const count = order.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -138,7 +148,7 @@ function ResultadosCarousel() {
             transition: "transform 750ms var(--ease-out-expo)",
           }}
         >
-          {participantes.map((p, i) => {
+          {order.map((p, i) => {
             const d = Math.abs(i - index);
             const side = i < index ? -1 : 1;
             const state =
@@ -233,7 +243,7 @@ function ResultadosCarousel() {
       </button>
 
       <div className="mt-8 flex items-center justify-center gap-2">
-        {participantes.map((p, i) => (
+        {order.map((p, i) => (
           <button
             key={p.n}
             type="button"
@@ -246,8 +256,8 @@ function ResultadosCarousel() {
             style={
               i === index
                 ? {
-                    background: PARTICIPANT_TONES[i],
-                    boxShadow: `0 0 12px ${PARTICIPANT_TONES[i]}80`,
+                    background: toneOf(p.n),
+                    boxShadow: `0 0 12px ${toneOf(p.n)}80`,
                   }
                 : undefined
             }
@@ -260,7 +270,7 @@ function ResultadosCarousel() {
           key={index}
           className="report-progress h-full w-full"
           style={{
-            background: `linear-gradient(90deg, ${toneOf(participantes[index].n)}55, ${toneOf(participantes[index].n)})`,
+            background: `linear-gradient(90deg, ${toneOf(order[index].n)}55, ${toneOf(order[index].n)})`,
             animationPlayState: paused ? "paused" : "running",
           }}
         />
