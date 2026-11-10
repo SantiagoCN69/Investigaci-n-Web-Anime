@@ -1024,20 +1024,6 @@
   animation: report-card-in 800ms var(--ease-out-expo) both;
 }
 
-@keyframes report-progress {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.report-progress {
-  transform-origin: left;
-  animation: report-progress 6s linear both;
-}
-
 @keyframes ticker-slam {
   0% {
     opacity: 0;
@@ -1513,8 +1499,7 @@
   .shot-zoom,
   .shot-zoom__bg,
   .shot-zoom__frame,
-  .report-card--active,
-  .report-progress {
+  .report-card--active {
     animation: none;
   }
   .reference-icon__asset {

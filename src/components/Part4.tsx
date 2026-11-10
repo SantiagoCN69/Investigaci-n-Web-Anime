@@ -264,17 +264,6 @@ function ResultadosCarousel() {
           />
         ))}
       </div>
-
-      <div className="mx-auto mt-5 h-px w-full max-w-md overflow-hidden rounded bg-line">
-        <div
-          key={index}
-          className="report-progress h-full w-full"
-          style={{
-            background: `linear-gradient(90deg, ${toneOf(order[index].n)}55, ${toneOf(order[index].n)})`,
-            animationPlayState: paused ? "paused" : "running",
-          }}
-        />
-      </div>
     </div>
   );
 }
