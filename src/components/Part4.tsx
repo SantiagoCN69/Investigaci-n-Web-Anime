@@ -52,6 +52,9 @@ const participantes: { n: number; nombre?: string; reporte?: string[] }[] = [
   { n: 5 },
 ];
 
+const PARTICIPANT_TONES = ["#9e41d3", "#f2a93b", "#3ec6d8", "#e86a92", "#d5a9f0"];
+const toneOf = (n: number) => PARTICIPANT_TONES[n - 1] ?? "#d5a9f0";
+
 const CAROUSEL_MS = 6000;
 const EDGE_MASK =
   "linear-gradient(90deg, transparent, black 14%, black 86%, transparent)";
@@ -145,6 +148,7 @@ function ResultadosCarousel() {
                   ? `opacity-55 blur-[2px] scale-[0.93] ${side < 0 ? "-rotate-2" : "rotate-2"}`
                   : "opacity-20 blur-[5px] scale-[0.85]";
             const active = d === 0;
+            const tone = toneOf(p.n);
             return (
               <div
                 key={p.n}
@@ -153,18 +157,17 @@ function ResultadosCarousel() {
               >
                 <article
                   className={`flex h-full min-h-[20rem] flex-col border p-6 md:min-h-[23rem] md:p-8 ${
-                    p.reporte
-                      ? "border-accent/40 bg-accent/5"
-                      : "border-dashed border-line"
+                    p.reporte ? "" : "border-dashed"
                   } ${active ? "report-card--active" : ""}`}
+                  style={{
+                    borderColor: `color-mix(in srgb, ${tone} ${p.reporte ? 40 : 30}%, transparent)`,
+                    background: `color-mix(in srgb, ${tone} ${p.reporte ? 5 : 3}%, transparent)`,
+                  }}
                 >
                   {p.reporte ? (
                     <>
                       <header className="mb-5">
-                        <div className="mono text-xs text-accent-hi">
-                          Participante 0{p.n}
-                        </div>
-                        <h3 className="mt-1 text-2xl font-semibold">{p.nombre}</h3>
+                        <h3 className="text-2xl font-semibold">{p.nombre}</h3>
                       </header>
                       <ul className="flex-1 space-y-3">
                         {p.reporte.map((item) => (
@@ -173,7 +176,8 @@ function ResultadosCarousel() {
                             className="flex gap-3 text-sm leading-relaxed text-mute"
                           >
                             <span
-                              className="mt-2 size-1 shrink-0 rounded-full bg-accent"
+                              className="mt-2 size-1 shrink-0 rounded-full"
+                              style={{ background: tone }}
                               aria-hidden="true"
                             />
                             {item}
@@ -183,11 +187,25 @@ function ResultadosCarousel() {
                     </>
                   ) : (
                     <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
-                      <span className="mono text-dim">Participante 0{p.n}</span>
+                      <span className="mono" style={{ color: tone }}>
+                        Participante 0{p.n}
+                      </span>
                       <span className="font-display text-3xl font-semibold text-dim/60">
                         —
                       </span>
-                      <span className="text-sm text-dim">Reporte pendiente</span>
+                      <span className="flex items-center gap-2 text-sm text-dim">
+                        <span className="relative flex size-1.5" aria-hidden="true">
+                          <span
+                            className="absolute inline-flex size-full animate-ping rounded-full opacity-60"
+                            style={{ background: tone }}
+                          />
+                          <span
+                            className="relative inline-flex size-1.5 rounded-full"
+                            style={{ background: tone }}
+                          />
+                        </span>
+                        Reporte pendiente
+                      </span>
                     </div>
                   )}
                 </article>
@@ -223,10 +241,29 @@ function ResultadosCarousel() {
             aria-label={`Ir al reporte del participante 0${p.n}`}
             aria-current={i === index ? "true" : undefined}
             className={`h-1 transition-all duration-500 ${
-              i === index ? "w-10 bg-accent-hi" : "w-5 bg-line hover:bg-dim"
+              i === index ? "w-10" : "w-5 bg-line hover:bg-dim"
             }`}
+            style={
+              i === index
+                ? {
+                    background: PARTICIPANT_TONES[i],
+                    boxShadow: `0 0 12px ${PARTICIPANT_TONES[i]}80`,
+                  }
+                : undefined
+            }
           />
         ))}
+      </div>
+
+      <div className="mx-auto mt-5 h-px w-full max-w-md overflow-hidden rounded bg-line">
+        <div
+          key={index}
+          className="report-progress h-full w-full"
+          style={{
+            background: `linear-gradient(90deg, ${toneOf(participantes[index].n)}55, ${toneOf(participantes[index].n)})`,
+            animationPlayState: paused ? "paused" : "running",
+          }}
+        />
       </div>
     </div>
   );
@@ -249,7 +286,9 @@ export function Pruebas() {
             <article className="flex h-full flex-col bg-ink p-6">
               <div className="flex items-baseline justify-between">
                 <h3 className="text-lg font-semibold">{name}</h3>
-                <span className="mono text-dim">0{i + 1}</span>
+                <span className="mono" style={{ color: PARTICIPANT_TONES[i] }}>
+                  0{i + 1}
+                </span>
               </div>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-mute">{task}</p>
               <p className="mt-5 border-t border-line pt-4 text-sm italic leading-relaxed text-dim">
@@ -275,7 +314,12 @@ export function Pruebas() {
           <ul className="flex flex-col justify-center gap-4 bg-ink p-7 lg:col-span-5 lg:p-9">
             {cierre.map((item, i) => (
               <li key={item} className="flex gap-4 text-sm leading-relaxed text-mute">
-                <span className="mono shrink-0 text-dim">0{i + 1}</span>
+                <span
+                  className="mono shrink-0"
+                  style={{ color: PARTICIPANT_TONES[i] }}
+                >
+                  0{i + 1}
+                </span>
                 {item}
               </li>
             ))}
