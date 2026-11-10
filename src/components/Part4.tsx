@@ -44,8 +44,8 @@ const reporteSebastian = [
   "Catálogo: la búsqueda de géneros como romance adolescente o Boys' Love / yaoi es muy limitada o inexistente.",
 ];
 
-const participantes: { n: number; nombre?: string; reporte?: string[] }[] = [
-  { n: 1, nombre: "Sebastián Almanza", reporte: reporteSebastian },
+const participantes: { n: number; nombre?: string; edad?: number; reporte?: string[] }[] = [
+  { n: 1, nombre: "Sebastián Almanza", edad: 20, reporte: reporteSebastian },
   { n: 2 },
   { n: 3 },
   { n: 4 },
@@ -176,8 +176,11 @@ function ResultadosCarousel() {
                 >
                   {p.reporte ? (
                     <>
-                      <header className="mb-5">
+                      <header className="mb-5 flex items-baseline justify-between gap-4">
                         <h3 className="text-2xl font-semibold">{p.nombre}</h3>
+                        {p.edad != null && (
+                          <span className="mono text-dim">{p.edad} años</span>
+                        )}
                       </header>
                       <ul className="flex-1 space-y-3">
                         {p.reporte.map((item) => (
