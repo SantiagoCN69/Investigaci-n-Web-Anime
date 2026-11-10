@@ -4,6 +4,13 @@ import { CountUp, Reveal } from "../hooks";
 const SOURCE =
   "Fuente: Cobos, T. L., Robledo, N. y Arias, F. (2023). «Anime en Colombia: una exploración desde usos y gratificaciones en la población universitaria de Cartagena de Indias».";
 
+const BAR_TONES = {
+  accent: "bg-accent",
+  amber: "bg-amber",
+  cyan: "bg-cyan",
+  paper: "bg-paper/70",
+} as const;
+
 function Bar({
   v,
   max = 100,
@@ -13,12 +20,12 @@ function Bar({
   v: number;
   max?: number;
   delay?: number;
-  tone?: "accent" | "paper";
+  tone?: keyof typeof BAR_TONES;
 }) {
   return (
     <div className="h-[6px] w-full bg-line">
       <div
-        className={`draw-x h-full ${tone === "accent" ? "bg-accent" : "bg-paper/70"}`}
+        className={`draw-x h-full ${BAR_TONES[tone]}`}
         style={{ width: `${(v / max) * 100}%`, ["--d" as string]: `${delay}ms` }}
       />
     </div>
@@ -59,7 +66,7 @@ export function Demografia() {
             </Reveal>
             <Reveal className="mt-10" delay={100}>
               <div className="flex items-baseline gap-4">
-                <span className="font-display text-6xl font-semibold tracking-[-0.04em]">
+                <span className="font-display text-6xl font-semibold tracking-[-0.04em] text-accent-hi">
                   <CountUp to={84.7} />
                 </span>
                 <span className="text-mute">jóvenes entre 17 y 25 años</span>
@@ -76,7 +83,7 @@ export function Demografia() {
                         {String(v).replace(".", ",")}%
                       </span>
                     </div>
-                    <Bar v={v as number} delay={i * 120} tone="paper" />
+                    <Bar v={v as number} delay={i * 120} tone="cyan" />
                   </div>
                 ))}
               </div>
@@ -90,7 +97,7 @@ export function Demografia() {
                   Hombres 59,4%
                 </div>
                 <div
-                  className="draw-x flex items-center bg-paper px-3"
+                  className="draw-x flex items-center bg-amber px-3 text-ink"
                   style={{ width: "39.7%", ["--d" as string]: "200ms" }}
                 >
                   Mujeres 39,7%
@@ -110,7 +117,7 @@ export function Demografia() {
                       {v.toFixed(1).replace(".", ",")}%
                     </span>
                   </div>
-                  <Bar v={v} delay={i * 90} />
+                  <Bar v={v} delay={i * 90} tone={i === 0 ? "amber" : "accent"} />
                 </Reveal>
               ))}
             </div>
@@ -139,7 +146,7 @@ export function Necesidades() {
       />
       <div className="grid gap-16 md:grid-cols-12 md:gap-10">
         <Reveal className="md:col-span-5 flex flex-col justify-center">
-          <div className="font-display text-[clamp(4.5rem,9.5vw,8rem)] font-semibold leading-[0.82] tracking-[-0.06em]">
+          <div className="font-display text-[clamp(4.5rem,9.5vw,8rem)] font-semibold leading-[0.82] tracking-[-0.06em] text-accent-hi">
             <CountUp to={96.2} />
           </div>
           <h3 className="mt-7 text-2xl font-semibold md:text-3xl">Diversión y entretenimiento</h3>
@@ -156,7 +163,7 @@ export function Necesidades() {
                 delay={i * 70}
                 className="grid gap-3 border-b border-line py-6 sm:grid-cols-[7rem_1fr] sm:items-baseline"
               >
-                <div className="font-display text-4xl font-semibold tracking-[-0.04em]">
+                <div className="font-display text-4xl font-semibold tracking-[-0.04em] text-accent-hi">
                   <CountUp to={parseFloat(n.replace(",", "."))} />
                 </div>
                 <div>
@@ -174,30 +181,34 @@ export function Necesidades() {
   );
 }
 
-const perfiles: [string, string, string, string][] = [
+const perfiles: [string, string, string, string, string][] = [
   [
     "El explorador",
     "Busca descubrir nuevos títulos.",
     "Filtros avanzados (género, demografía, estudio, año) y referencias detalladas antes de reproducir.",
     "usersearch",
+    "text-cyan",
   ],
   [
     "El seguidor",
     "Consume simulcasts y series en emisión.",
     "Acceso directo e inmediato al último episodio de sus series, sin fricción en la navegación.",
     "play",
+    "text-accent-hi",
   ],
   [
     "El organizador",
     "Gestiona su propio ecosistema de visualización.",
     "Herramientas de listas (pendientes, favoritos, completados) y facilidades para replicar su gestión en MyAnimeList.",
     "maleta",
+    "text-amber",
   ],
   [
     "El casual",
     "Tolera poco esfuerzo cognitivo.",
     "Recomendaciones directas, decisiones asistidas y una interfaz limpia con opciones limitadas pero precisas.",
     "sofa",
+    "text-rose",
   ],
 ];
 const requisitos: [string, string][] = [
@@ -220,7 +231,7 @@ export function Perfiles() {
           lead="Arquetipos de usuario y casos de uso. Son perfiles de trabajo construidos a partir de los hallazgos de la muestra y del análisis del ecosistema."
         />
         <div className="grid gap-5 md:grid-cols-12 md:gap-6 md:pb-10">
-          {perfiles.map(([title, role, needs, icon], i) => (
+          {perfiles.map(([title, role, needs, icon, tone], i) => (
             <Reveal
               key={title}
               delay={i * 70}
@@ -240,7 +251,7 @@ export function Perfiles() {
               </h3>
               <p className="relative mt-3 max-w-[38ch] text-mute">{role}</p>
               <div className="relative mt-6">
-                <span className="mono text-accent-hi">Necesita</span>
+                <span className={`mono ${tone}`}>Necesita</span>
                 <p className="mt-1 max-w-[42ch] text-sm text-paper/80">{needs}</p>
               </div>
             </Reveal>
@@ -283,6 +294,8 @@ export function Perfiles() {
 }
 
 const cols = ["Catálogo", "Búsqueda / organización", "Experiencia de uso"];
+const OPP_BRAND = ["#ff9f2d", "#e50914", "#6958ff"];
+
 const opp: [string, [string, string][]][] = [
   [
     "Crunchyroll",
@@ -358,7 +371,14 @@ export function Oportunidades() {
           delay={i * 80}
           className="grid gap-4 border-b border-line py-8 md:grid-cols-[1.1fr_1fr_1fr_1fr] md:gap-6"
         >
-          <h3 className="text-3xl font-semibold">{name}</h3>
+          <h3 className="flex items-center gap-3 text-3xl font-semibold">
+            <span
+              className="size-3 shrink-0 rounded-full"
+              style={{ background: OPP_BRAND[i] }}
+              aria-hidden="true"
+            />
+            {name}
+          </h3>
           {cells.map(([label, c], k) => (
             <div key={label} className="md:border-l md:border-line md:pl-6">
               <div className="mono mb-2 text-accent-hi md:hidden">{cols[k]}</div>

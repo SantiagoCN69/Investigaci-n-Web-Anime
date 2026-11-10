@@ -8,6 +8,7 @@ export const NAV = [
   ["referentes", "Referentes"],
   ["usuarios", "Usuarios"],
   ["solucion", "AniZen"],
+  ["pruebas", "Pruebas"],
   ["fuentes", "Fuentes"],
 ] as const;
 

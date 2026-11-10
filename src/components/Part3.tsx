@@ -195,6 +195,8 @@ export function Solucion() {
   );
 }
 
+const FUNC_TONES = ["#9e41d3", "#f2a93b", "#3ec6d8", "#e86a92"];
+
 const MAP_ENDS = [143, 448, 752, 1057];
 const MAP_SWAY = [0.55, 0.95, 0.8, 1.15];
 const MAP_START_SPREAD = 0.1;
@@ -228,18 +230,28 @@ export function Funcionalidades() {
             className="absolute inset-0 h-full w-full overflow-visible"
           >
             <defs>
-              <linearGradient id="func-line-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#d5a9f0" stopOpacity="0" />
-                <stop offset=".45" stopColor="#d5a9f0" stopOpacity=".28" />
-                <stop offset="1" stopColor="#9e41d3" stopOpacity=".5" />
-              </linearGradient>
+              {FUNC_TONES.map((color, i) => (
+                <linearGradient
+                  key={color}
+                  id={`func-grad-${i}`}
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0" stopColor={color} stopOpacity="0" />
+                  <stop offset=".45" stopColor={color} stopOpacity=".28" />
+                  <stop offset="1" stopColor={color} stopOpacity=".5" />
+                </linearGradient>
+              ))}
             </defs>
-            <g fill="none" stroke="url(#func-line-grad)" strokeWidth="2.6" strokeLinecap="round">
+            <g fill="none" strokeWidth="2.6" strokeLinecap="round">
               {MAP_ENDS.map((x, i) => (
                 <path
                   key={x}
                   pathLength={1}
                   className={`func-line func-line--${i}`}
+                  stroke={`url(#func-grad-${i})`}
                   style={{ ["--line-delay" as string]: `${150 + i * 140}ms` }}
                   d={mapPath(x, i)}
                 />
@@ -254,7 +266,12 @@ export function Funcionalidades() {
                 data-card={i}
                 className="func-card relative flex h-full flex-col border border-line bg-paper/[0.035] p-6 md:p-7"
               >
-                <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
+                  <span className="mono shrink-0" style={{ color: FUNC_TONES[i] }}>
+                    0{i + 1}
+                  </span>
+                </div>
                 <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
               </div>
             </Reveal>
@@ -321,6 +338,8 @@ export function UX() {
   );
 }
 
+const IA_TONES = ["#d5a9f0", "#f2a93b", "#3ec6d8", "#e86a92"];
+
 const ia = [
   [
     "Búsqueda contextual",
@@ -365,6 +384,7 @@ export function IA() {
               {
                 "--ia-x": `${i % 2 === 0 ? "-" : ""}${(i + 1) * 90}px`,
                 "--ia-delay": `${i * 110}ms`,
+                "--ia-glow": IA_TONES[i],
               } as CSSProperties
             }
           >
@@ -445,6 +465,8 @@ const tech: [string, ReactNode, string][] = [
   ],
 ];
 
+const TECH_TONES = ["#9e41d3", "#f2a93b", "#3ec6d8", "#e86a92", "#d5a9f0"];
+
 const placements = [
   "md:col-span-6 md:row-start-1 -rotate-2 md:rotate-[-2deg] md:-translate-y-3",
   "md:col-span-5 md:col-start-8 md:row-start-1 md:translate-y-24 rotate-1 md:rotate-[2deg]",
@@ -486,6 +508,7 @@ export function Bases() {
               key={title}
               delay={i * 70}
               className={`tech-row group relative p-6 md:p-7 ${placements[i] ?? ""}`}
+              style={{ ["--tech-glow" as string]: TECH_TONES[i] }}
             >
               <TechIcon src={icon} index={i} />
               <h3
@@ -516,16 +539,18 @@ export function Bases() {
 }
 
 const concl = [
-  ["Dispersión", "centralización", "Catálogo y reproducción dentro de AniZen, en un mismo lugar."],
+  ["Dispersión", "centralización", "Catálogo y reproducción dentro de AniZen, en un mismo lugar.", "text-accent-hi"],
   [
     "Seguimiento",
     "biblioteca",
     "Series, favoritos y control de capítulos en una biblioteca personal.",
+    "text-amber",
   ],
   [
     "Búsqueda",
     "descubrimiento",
     "Filtros específicos y recomendaciones como alcance del proyecto.",
+    "text-cyan",
   ],
 ];
 
@@ -537,13 +562,13 @@ export function Conclusiones() {
         lead="Los referentes definieron el estándar, la muestra reveló las necesidades y AniZen convierte ambos aprendizajes en decisiones verificables."
       />
       <div className="border-t border-line">
-        {concl.map(([a, b, d], i) => (
+        {concl.map(([a, b, d, tone], i) => (
           <Reveal key={a} delay={i * 80}>
             <div className="grid items-center gap-4 border-b border-line py-10 md:grid-cols-12">
               <h3 className="text-[clamp(2rem,4.6vw,4.2rem)] font-semibold md:col-span-8">
                 <span className="text-dim">{a}</span>
                 <span className="mx-4 inline-block text-accent-text">→</span>
-                <span>{b}</span>
+                <span className={tone}>{b}</span>
               </h3>
               <p className="max-w-[34ch] text-mute md:col-span-4">{d}</p>
             </div>

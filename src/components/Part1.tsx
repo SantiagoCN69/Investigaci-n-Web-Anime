@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { LogoMark } from "./Logo";
 import { ScrollTitle, SectionHead, wrap } from "./Chrome";
 import { Reveal, WordScrub, useInView, useScrollProgress } from "../hooks";
@@ -78,13 +78,19 @@ export function Objetivo() {
 }
 
 const formats = [
-  ["Televisión", "Emisión por cable y horarios fijos", "tv", "1936"],
-  ["DVD físico", "Compra y coleccionismo doméstico", "disc", "1996"],
-  ["Descargas", "Archivos digitales y P2P", "download", "1999"],
-  ["Streaming", "Plataformas y apps bajo demanda", "stream", "2007"],
+  ["Televisión", "Emisión por cable y horarios fijos", "tv", "1936", "text-paper/50"],
+  ["DVD físico", "Compra y coleccionismo doméstico", "disc", "1996", "text-cyan"],
+  ["Descargas", "Archivos digitales y P2P", "download", "1999", "text-accent"],
+  ["Streaming", "Plataformas y apps bajo demanda", "stream", "2007", "text-amber"],
 ] as const;
 
-function FormatIcon({ type }: { type: (typeof formats)[number][2] }) {
+function FormatIcon({
+  type,
+  tone = "text-dim",
+}: {
+  type: (typeof formats)[number][2];
+  tone?: string;
+}) {
   const paths = {
     tv: (
       <>
@@ -114,7 +120,7 @@ function FormatIcon({ type }: { type: (typeof formats)[number][2] }) {
   };
 
   return (
-    <span className="format-icon block text-dim md:mb-7" aria-hidden="true">
+    <span className={`format-icon block ${tone} md:mb-7`} aria-hidden="true">
       <svg
         viewBox="0 0 24 24"
         className="size-12"
@@ -137,7 +143,7 @@ export function Consumo() {
         <SectionHead title={<>Evolución de los formatos de acceso.</>} />
         <div>
           <div className="grid gap-10 md:grid-cols-4 md:gap-6">
-            {formats.map(([t, d, icon, year], i) => (
+            {formats.map(([t, d, icon, year, tone], i) => (
               <Reveal
                 key={t}
                 delay={i * 110}
@@ -147,7 +153,7 @@ export function Consumo() {
                   <span className="absolute right-0 bottom-0 text-3xl font-bold leading-none tracking-[0.15em] text-accent-hi/15 md:static md:my-3 md:block md:w-fit md:ml-auto md:text-sm md:font-normal md:tracking-[0.2em] md:text-accent-hi">
                     {year}
                   </span>
-                  <FormatIcon type={icon} />
+                  <FormatIcon type={icon} tone={tone} />
                 </div>
                 <h3 className="relative text-3xl font-semibold">{t}</h3>
                 <p className="relative mt-2 max-w-[24ch] text-mute">{d}</p>
@@ -181,6 +187,8 @@ export function Consumo() {
 }
 
 /* ---------- Visual evolution: pinned, scroll-driven ---------- */
+
+const ERA_BAR_TONES = ["bg-paper/40", "bg-cyan", "bg-accent", "bg-amber"];
 
 const eras = [
   { y: "1990 — 2000", t: "Web tradicional", d: "Tablas, colores planos y navegación básica." },
@@ -369,7 +377,7 @@ export function EvolucionVisual() {
                 {eras.map((e, k) => (
                   <span key={e.t} className="h-[3px] flex-1 overflow-hidden rounded bg-line">
                     <span
-                      className="block h-full origin-left bg-accent transition-transform duration-700 ease-out"
+                      className={`block h-full origin-left ${ERA_BAR_TONES[k]} transition-transform duration-700 ease-out`}
                       style={{ transform: `scaleX(${k <= idx ? 1 : 0})` }}
                     />
                   </span>
@@ -432,11 +440,11 @@ const refs = [
 
 function GlobalReachGraphic() {
   const [ref, seen] = useInView<HTMLElement>(0.25);
-  const nodes = [
+  const nodes: [number, number, string?][] = [
     [112, 166],
     [320, 151],
-    [520, 143],
-    [612, 166],
+    [520, 143, "#f2a93b"],
+    [612, 166, "#3ec6d8"],
   ];
 
   return (
@@ -457,6 +465,16 @@ function GlobalReachGraphic() {
             <stop offset="0" stopColor="#9e41d3" stopOpacity=".3" />
             <stop offset=".55" stopColor="#fafcf3" />
             <stop offset="1" stopColor="#d5a9f0" stopOpacity=".55" />
+          </linearGradient>
+          <linearGradient id="reach-arc-warm" x1="0" y1="1" x2=".55" y2="0">
+            <stop offset="0" stopColor="#f2a93b" stopOpacity=".3" />
+            <stop offset=".55" stopColor="#fafcf3" />
+            <stop offset="1" stopColor="#f2a93b" stopOpacity=".55" />
+          </linearGradient>
+          <linearGradient id="reach-arc-cool" x1="0" y1="1" x2=".55" y2="0">
+            <stop offset="0" stopColor="#3ec6d8" stopOpacity=".3" />
+            <stop offset=".55" stopColor="#fafcf3" />
+            <stop offset="1" stopColor="#3ec6d8" stopOpacity=".55" />
           </linearGradient>
           <radialGradient id="reach-surface" cx=".5" cy=".2" r=".8">
             <stop offset="0" stopColor="#d5a9f0" stopOpacity=".16" />
@@ -486,12 +504,14 @@ function GlobalReachGraphic() {
           <path
             className="global-reach__arc"
             pathLength="1"
+            stroke="url(#reach-arc-warm)"
             style={{ ["--route-delay" as string]: "0.16s" }}
             d="M208 126Q345 -34 520 143"
           />
           <path
             className="global-reach__arc"
             pathLength="1"
+            stroke="url(#reach-arc-cool)"
             style={{ ["--route-delay" as string]: "0.32s" }}
             d="M320 151Q476 18 612 166"
           />
@@ -499,11 +519,16 @@ function GlobalReachGraphic() {
 
         <path className="global-reach__horizon" d="M36 183H684" />
         <g className="global-reach__nodes">
-          {nodes.map(([cx, cy], index) => (
+          {nodes.map(([cx, cy, color], index) => (
             <g
               key={`${cx}-${cy}`}
               className="global-reach__node"
-              style={{ ["--node-delay" as string]: `${0.5 + index * 0.12}s` }}
+              style={
+                {
+                  ["--node-delay" as string]: `${0.5 + index * 0.12}s`,
+                  ...(color ? { ["--node-color" as string]: color } : {}),
+                } as CSSProperties
+              }
             >
               <circle cx={cx} cy={cy} r="8" />
               <circle cx={cx} cy={cy} r="2.5" />
@@ -637,7 +662,7 @@ export function Referentes() {
                     {
                       "--reference-scale": reference.iconScale,
                       "--reference-delay": `${i * -1.15}s`,
-                    } as React.CSSProperties
+                    } as CSSProperties
                   }
                 />
               </span>
