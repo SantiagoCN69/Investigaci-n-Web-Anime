@@ -288,9 +288,6 @@ export function Pruebas() {
             <article className="flex h-full flex-col bg-ink p-6">
               <div className="flex items-baseline justify-between">
                 <h3 className="text-lg font-semibold">{name}</h3>
-                <span className="mono" style={{ color: PARTICIPANT_TONES[i] }}>
-                  0{i + 1}
-                </span>
               </div>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-mute">{task}</p>
               <p className="mt-5 border-t border-line pt-4 text-sm italic leading-relaxed text-dim">
@@ -316,12 +313,7 @@ export function Pruebas() {
           <ul className="flex flex-col justify-center gap-4 bg-ink p-7 lg:col-span-5 lg:p-9">
             {cierre.map((item, i) => (
               <li key={item} className="flex gap-4 text-sm leading-relaxed text-mute">
-                <span
-                  className="mono shrink-0"
-                  style={{ color: PARTICIPANT_TONES[i] }}
-                >
-                  0{i + 1}
-                </span>
+                <span className="mono shrink-0">{i + 1}</span>
                 {item}
               </li>
             ))}
