@@ -27,7 +27,8 @@ export function Hero() {
         <div className="mt-12 grid items-end gap-8 md:grid-cols-12">
           <Reveal delay={500} className="md:col-span-5">
             <p className="max-w-[40ch] text-lg text-mute">
-              Un estudio sobre hábitos, plataformas y decisiones de interfaz para definir AniZen.
+              Investigación UX sobre cómo los colombianos buscan, consumen y organizan anime, y las
+              decisiones de interfaz detrás de AniZen.
             </p>
           </Reveal>
         </div>

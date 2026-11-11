@@ -1,8 +1,9 @@
 {
-  "title": "Investigación Web Anime",
-  "description": "Presenta una investigación en una experiencia web profesional y dinámica, con animaciones al desplazarse y una composición cuidada que facilita explorar sus hallazgos.",
+  "title": "AniZen — Investigación del consumo de anime en Colombia",
+  "description": "Estudio UX sobre cómo los colombianos buscan, consumen y organizan anime: hábitos, plataformas, perfiles de usuario y decisiones de producto detrás de AniZen.",
+  "language": "es",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
