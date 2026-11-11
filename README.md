@@ -97,10 +97,3 @@ El proyecto usa un tema oscuro editorial con acentos cálidos, tipografía expre
 
 Proyecto académico — todos los derechos reservados.
 
----
-
-<div align="center">
-
-Hecho con 💜 para la comunidad del anime
-
-</div>
