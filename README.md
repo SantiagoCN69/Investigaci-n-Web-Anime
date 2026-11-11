@@ -4,6 +4,8 @@
 
 ### Investigación UX sobre el ecosistema digital del anime
 
+**Proyecto universitario · Diseño de Producto / Experiencia de Usuario**
+
 **El anime no solo se consume. Se habita.**
 
 ![AniZen Search](https://scn.zenlite.workers.dev/anizensearch.png)
@@ -17,11 +19,13 @@
 
 ---
 
+## 🎓 Proyecto universitario
+
+Este repositorio es el entregable de un **proyecto académico** enfocado en investigación de usuarios y diseño de producto. Combina un estudio UX completo —demografía, necesidades, perfiles, referentes y oportunidades— con la propuesta funcional de **AniZen**, una plataforma pensada para descubrir, retomar y organizar anime en una sola experiencia.
+
 ## 🌸 ¿Qué es AniZen?
 
-AniZen es un estudio digital completo sobre el ecosistema del anime: hábitos de consumo, plataformas de streaming, perfiles de usuarios y decisiones de producto que dieron forma a una experiencia diseñada para **descubrir, retomar y organizar** anime sin abandonar el mismo recorrido.
-
-Este repositorio contiene el sitio web interactivo donde se presenta toda la investigación — desde el análisis de referentes como Crunchyroll, Netflix y webs abiertas, hasta los prototipos finales de la propuesta.
+AniZen es el resultado del estudio: una propuesta de producto digital sobre el ecosistema del anime que responde a hábitos reales de consumo y a las brechas detectadas en plataformas como Crunchyroll, Netflix y webs abiertas.
 
 ## ✨ Contenido del sitio
 
