@@ -268,9 +268,6 @@ export function Funcionalidades() {
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-xl font-semibold md:text-2xl">{t}</h3>
-                  <span className="mono shrink-0" style={{ color: FUNC_TONES[i] }}>
-                    0{i + 1}
-                  </span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-mute">{d}</p>
               </div>
