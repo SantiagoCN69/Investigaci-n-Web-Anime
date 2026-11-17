@@ -44,9 +44,17 @@ const reporteSebastian = [
   "Catálogo: la búsqueda de géneros como romance adolescente o Boys' Love / yaoi es muy limitada o inexistente.",
 ];
 
+const reporteSofia = [
+  "Búsqueda: encontré rápidamente el anime que buscaba, Death Note, e incluso descubrí otras versiones que me gustaría ver próximamente.",
+  "Listas: el inicio de sesión con Google fue muy fácil. Los botones son bastante visibles y fáciles de identificar, y me gustó poder consultar mi progreso mientras veía el anime.",
+  "Directorios: todos los filtros funcionaron correctamente. Me ayudaron a descartar opciones y encontrar nuevos animes que podrían interesarme.",
+  "Reproducción: toda la experiencia fue bastante fluida y mi progreso se actualizó y reflejó correctamente.",
+  "Visual: me gustó mucho la posibilidad de personalizar los colores de la plataforma según mis preferencias. En general, la experiencia con Death Note fue bastante satisfactoria y la plataforma ofrece una gran variedad de información y opciones.",
+];
+
 const participantes: { n: number; nombre?: string; edad?: number; reporte?: string[] }[] = [
   { n: 1, nombre: "Sebastián Almanza", edad: 20, reporte: reporteSebastian },
-  { n: 2 },
+  { n: 2, nombre: "Sofía Alejandra", edad: 19, reporte: reporteSofia },
   { n: 3 },
   { n: 4 },
   { n: 5 },
