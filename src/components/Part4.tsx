@@ -52,9 +52,18 @@ const reporteSofia = [
   "Visual: me gustó mucho la posibilidad de personalizar los colores de la plataforma según mis preferencias. En general, la experiencia con Death Note fue bastante satisfactoria y la plataforma ofrece una gran variedad de información y opciones.",
 ];
 
+const reporteMateo = [
+  "Búsqueda: va fluido y sale lo que busco. En la barra de búsqueda tardó solo unos 10 segundos aproximadamente y me recomendó animes bastante buenos como One Piece o Hunter x Hunter.",
+  "Listas: el inicio de sesión es bastante fluido y claro, poniendo la selección de inmediato.",
+  "Directorios: los filtros funcionan bastante bien y son bastante bonitos; el morado es mi favorito.",
+  "Reproducción: el avance y lo de visto o no visto el episodio funcionó bastante bien. Lo único que no me gustó es que no está en español.",
+  "General: probé la barra de recomendación de anime y el anime que escogí para revisar y probar fue One Piece. Mi experiencia fue muy buena encontrando animes bastante buenos que no están, por ejemplo, en Netflix. En general la página va fluida y funciona bastante bien.",
+];
+
 const participantes: { n: number; nombre?: string; edad?: number; reporte?: string[] }[] = [
   { n: 1, nombre: "Sebastián Almanza", edad: 20, reporte: reporteSebastian },
   { n: 2, nombre: "Sofía Alejandra", edad: 19, reporte: reporteSofia },
+  { n: 3, nombre: "Mateo Betancourt", edad: 18, reporte: reporteMateo },
   { n: 3 },
   { n: 4 },
   { n: 5 },
