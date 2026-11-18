@@ -109,6 +109,7 @@ function ResultadosCarousel() {
   const [paused, setPaused] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const touchX = useRef<number | null>(null);
   const [metrics, setMetrics] = useState({ slide: 0, gap: 20, vp: 0 });
 
   useEffect(() => {
@@ -154,12 +155,22 @@ function ResultadosCarousel() {
     >
       <div
         ref={viewportRef}
-        className="overflow-hidden pt-10 pb-2"
+        className="overflow-hidden px-2 pt-10 pb-4 sm:px-0 sm:pt-10 sm:pb-2"
         style={{ maskImage: EDGE_MASK, WebkitMaskImage: EDGE_MASK }}
+        onTouchStart={(e) => {
+          touchX.current = e.touches[0].clientX;
+        }}
+        onTouchEnd={(e) => {
+          if (touchX.current == null) return;
+          const dx = e.changedTouches[0].clientX - touchX.current;
+          touchX.current = null;
+          if (Math.abs(dx) < 40) return;
+          go(dx < 0 ? 1 : -1);
+        }}
       >
         <div
           ref={trackRef}
-          className="flex gap-5 will-change-transform"
+          className="flex gap-4 will-change-transform sm:gap-5"
           style={{
             transform: `translate3d(${tx}px, 0, 0)`,
             transition: "transform 750ms var(--ease-out-expo)",
@@ -180,10 +191,10 @@ function ResultadosCarousel() {
               <div
                 key={p.n}
                 data-slide
-                className={`report-carousel__slide w-[80%] shrink-0 sm:w-[60%] lg:w-[44%] ${state}`}
+                className={`report-carousel__slide w-[82%] shrink-0 sm:w-[60%] lg:w-[44%] ${state}`}
               >
                 <article
-                  className={`flex h-full min-h-[20rem] flex-col border p-6 md:min-h-[23rem] md:p-8 ${
+                  className={`flex h-full min-h-[15rem] flex-col border p-5 sm:min-h-[20rem] sm:p-6 md:min-h-[23rem] md:p-8 ${
                     p.reporte ? "" : "border-dashed"
                   } ${active ? "report-card--active" : ""}`}
                   style={{
@@ -249,7 +260,7 @@ function ResultadosCarousel() {
         type="button"
         onClick={() => go(-1)}
         aria-label="Reporte anterior"
-        className="absolute left-1 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center border border-line bg-ink/70 text-mute backdrop-blur-sm transition-colors hover:border-accent-hi hover:text-accent-hi md:left-3"
+        className="absolute left-1 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center border border-line bg-ink/80 text-mute backdrop-blur-sm transition-colors hover:border-accent-hi hover:text-accent-hi sm:left-3 sm:size-11"
       >
         <Chevron dir="left" />
       </button>
@@ -257,7 +268,7 @@ function ResultadosCarousel() {
         type="button"
         onClick={() => go(1)}
         aria-label="Reporte siguiente"
-        className="absolute right-1 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center border border-line bg-ink/70 text-mute backdrop-blur-sm transition-colors hover:border-accent-hi hover:text-accent-hi md:right-3"
+        className="absolute right-1 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center border border-line bg-ink/80 text-mute backdrop-blur-sm transition-colors hover:border-accent-hi hover:text-accent-hi sm:right-3 sm:size-11"
       >
         <Chevron dir="right" />
       </button>
@@ -270,8 +281,8 @@ function ResultadosCarousel() {
             onClick={() => setIndex(i)}
             aria-label={`Ir al reporte del participante 0${p.n}`}
             aria-current={i === index ? "true" : undefined}
-            className={`h-1 transition-all duration-500 ${
-              i === index ? "w-10" : "w-5 bg-line hover:bg-dim"
+            className={`h-1.5 transition-all duration-500 sm:h-1 ${
+              i === index ? "w-12 sm:w-10" : "w-6 bg-line hover:bg-dim sm:w-5"
             }`}
             style={
               i === index
