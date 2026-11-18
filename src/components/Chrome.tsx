@@ -96,7 +96,6 @@ export function Nav() {
               style={{ ["--menu-i" as string]: index }}
             >
               <span>{label}</span>
-              <span className="mono text-dim">0{index + 1}</span>
             </a>
           ))}
         </nav>
